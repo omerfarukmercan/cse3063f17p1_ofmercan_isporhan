@@ -1,3 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package monopoly;
+
+/**
+ *
+ * @author SADO
+ */
 
 public class Piece {
 	
@@ -6,6 +17,7 @@ public class Piece {
 	public String pieceName;
 	
 	public Piece() {
+                
 		isSelected = false;
 	}
 	
@@ -32,9 +44,10 @@ public class Piece {
 	public void setPieceName(String pieceName) {
 		this.pieceName = pieceName;
 	}
-	
-	public void goSquare(Board b,Die d1,Die d2) {
+        public void goSquare(Board b,Die d1,Die d2) {
         location=b.squares[(location.number+d1.getFaceValue()+d2.getFaceValue())%40];
-	}
+     
+}
+	
 	
 }

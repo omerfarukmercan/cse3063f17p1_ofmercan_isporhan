@@ -9,21 +9,17 @@ package monopoly;
  *
  * @author SADO
  */
+public class JailSquare extends Square{
 
-public class Die {
-
-	public int faceValue;
-
-	public int getFaceValue() {
-		return faceValue;
+	String name="Jail Square";
+    
+	public JailSquare(int number,String name) {
+		super(number,name);
+	}
+        public void action(){
+		
 	}
 
-	public void setFaceValue(int faceValue) {
-		this.faceValue = faceValue;
-	}
 	
-	public void roll() {
-		faceValue = (int) ((Math.random() * 6) + 1);
-	}
 	
 }
