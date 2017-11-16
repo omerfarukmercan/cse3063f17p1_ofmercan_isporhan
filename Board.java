@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monopoly;
+
 
 /**
  *
@@ -38,7 +38,7 @@ public class Board {
                         
                     }
                     else if(i==20){
-                        squares[i] = new Square(i,"Free Parking");
+                        squares[i] = new NormalSquare(i,"Free Parking");
                         
                     }
                     else if(i==30){

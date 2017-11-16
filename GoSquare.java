@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monopoly;
+
 
 /**
  *
@@ -14,7 +14,7 @@ public class GoSquare extends Square {
 		super(number,name);
                 
 	}
-     public void action(Player p){
+     public void action(Player p, Square s){
          p.increaseMoney(200);
          
      }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monopoly;
+
 
 /**
  *
@@ -14,7 +14,7 @@ public class IncomeTaxSquare extends Square{
     public IncomeTaxSquare(int number,String name) {
 		super(number,name);
 	}
-    public void action (Player p){
+    public void action (Player p, Square s){
         p.decreaseMoney((p.money.getValue()/10));
         
         //Gelirinin %10 u kadarını kaybedecek (total cashın)

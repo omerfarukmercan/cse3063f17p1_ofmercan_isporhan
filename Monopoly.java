@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monopoly;
+
 import java.util.Arrays;
 import java.lang.Character;
 import java.util.Scanner;
@@ -65,12 +65,22 @@ public class Monopoly {
 		
 		System.out.println("Players must select a piece in order :");
 		for (int i = 0; i < numberOfPlayers; i++) {
-			mg.listPiece();
-			System.out.println((i+1) + ". player select your piece as a number:");
-			choice = scan.nextInt();
+			
+			choice = (int)((Math.random()*8)+1);
+			if(!mg.pieceArr[choice-1].isSelected) {
+				mg.listPiece();
+				mg.player[i].setPiece(mg.pieceArr[(choice-1)]);
+				mg.player[i].getPiece().setLocation(mg.board.squares[0]);
+				mg.pieceArr[choice-1].isSelected = true;
+				System.out.println("Piece " + mg.player[i].getPiece().getPieceName() + " is selected by simulation for the Player named :" + mg.player[i].getName());
+			}
+			else {
+				i--;
+			}
 			mg.player[i].setPiece(mg.pieceArr[(choice-1)]);
-			mg.player[i].getPiece().setLocation(mg.board.squares[0]);
+			
 			mg.pieceArr[choice-1].isSelected = true;
+			mg.player[i].getPiece().setLocation(mg.board.squares[0]);
 		}
 		
 		System.out.println("Player Queue is creating ...");
@@ -160,9 +170,8 @@ public class Monopoly {
 		}		
 	}
       public static void actions(Player p, Square s) {
-		p.piece.location.action();
-                p.piece.location.action(p);
-                p.piece.location.action(p,s);
+ 
+       p.piece.location.action(p,s);
                 
 	}
 }

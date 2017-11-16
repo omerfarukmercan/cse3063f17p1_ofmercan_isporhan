@@ -3,32 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package monopoly;
 
 /**
  *
  * @author SADO
  */
 
-public class Square {
+abstract class Square {
 	int number;
-        String name;
-	public Square(int number,String name){   
+    String name;
+	
+    public Square(int number,String name){   
 		this.number=number;
-                this.name=name;
+		this.name=name;
 	}
 	
 	
 	
-	public void action(){
-		
-	}
-        public void action(Player p){
-            
-        }
-        public void action(Player p,Square s){
-            
-        }
+	public void action(Player p,Square s) {};
+
 
 	public int getNumber() {
 		return number;
