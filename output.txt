@@ -1,0 +1,1081 @@
+
+---Welcome to Monopoly Game----
+
+Please tell us how many player to play between 2 and 8 ?
+
+4
+
+Please give us player names :
+
+Give 1. player name : 
+
+Omer
+
+Give 2. player name : 
+
+Saadeddin
+
+Give 3. player name : 
+
+Ilyas
+
+Give 4. player name : 
+
+Faruk
+
+Please write money value that will be start value of money for all players : 
+
+200
+
+Players must select a piece in order :
+
+Piece bag is selected by simulation for the Player named :Omer
+
+Piece howitzer is selected by simulation for the Player named :Saadeddin
+
+Piece horse is selected by simulation for the Player named :Ilyas
+
+Piece shoe is selected by simulation for the Player named :Faruk
+
+Player Queue is creating ...
+
+Omer player is :1
+
+Faruk player is :2
+
+Saadeddin player is :3
+
+Ilyas player is :4
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Go Square (0 )
+
+Dice are : 5 1 and Total dice value :6
+
+----------------------------
+
+3
+
+1
+
+----------------------------
+
+Player Omer have 200M and he landed on Lots Square (6 )
+
+Faruk your turn :
+
+Player Faruk have 200M and he landed on Go Square (0 )
+
+Dice are : 4 6 and Total dice value :10
+
+Player Faruk have 200M and he landed on Jail Square (10 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 200M and he landed on Go Square (0 )
+
+Dice are : 5 6 and Total dice value :11
+
+----------------------------
+
+2
+
+2
+
+----------------------------
+
+Player Saadeddin have 200M and he landed on Lots Square (11 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Go Square (0 )
+
+Dice are : 5 5 and Total dice value :10
+
+Player Ilyas have 200M and he landed on Jail Square (10 )
+
+Double Dice!! Rolling Again ...
+
+Player Ilyas have 200M and he landed on Jail Square (10 )
+
+Dice are : 3 2 and Total dice value :5
+
+----------------------------
+
+2
+
+1
+
+----------------------------
+
+Player Ilyas have 200M and he landed on RailRoad Square (15 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Lots Square (6 )
+
+Dice are : 1 3 and Total dice value :4
+
+Player Omer have 200M and he landed on Jail Square (10 )
+
+Faruk your turn :
+
+Player Faruk have 200M and he landed on Jail Square (10 )
+
+Dice are : 1 5 and Total dice value :6
+
+----------------------------
+
+5
+
+4
+
+----------------------------
+
+Player Faruk have 20M and he landed on Lots Square (16 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 200M and he landed on Lots Square (11 )
+
+Dice are : 5 6 and Total dice value :11
+
+Player Saadeddin have 200M and he landed on ChanceSquare (22 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on RailRoad Square (15 )
+
+Dice are : 2 3 and Total dice value :5
+
+Player Ilyas have 200M and he landed on Free Parking (20 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Jail Square (10 )
+
+Dice are : 3 4 and Total dice value :7
+
+Player Omer have 200M and he landed on Community Chest Square (17 )
+
+Faruk your turn :
+
+Player Faruk have 20M and he landed on Lots Square (16 )
+
+Dice are : 6 2 and Total dice value :8
+
+----------------------------
+
+5
+
+1
+
+----------------------------
+
+Player Faruk have 20M and he landed on Lots Square (24 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 200M and he landed on ChanceSquare (22 )
+
+Dice are : 3 5 and Total dice value :8
+
+Player Saadeddin have 200M and he landed on Jail Square (10 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Free Parking (20 )
+
+Dice are : 1 4 and Total dice value :5
+
+----------------------------
+
+3
+
+4
+
+----------------------------
+
+Player Ilyas have 200M and he landed on RailRoad Square (25 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Community Chest Square (17 )
+
+Dice are : 5 2 and Total dice value :7
+
+----------------------------
+
+5
+
+6
+
+----------------------------
+
+Player Omer have 200M and he landed on Lots Square (24 )
+
+Faruk your turn :
+
+Player Faruk have 20M and he landed on Lots Square (24 )
+
+Dice are : 3 6 and Total dice value :9
+
+Player Faruk have 20M and he landed on Community Chest Square (33 )
+
+Player Saadeddin have 200M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to pay 50M for rescure
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on RailRoad Square (25 )
+
+Dice are : 6 2 and Total dice value :8
+
+Player Ilyas have 200M and he landed on Community Chest Square (33 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Lots Square (24 )
+
+Dice are : 5 2 and Total dice value :7
+
+----------------------------
+
+6
+
+2
+
+----------------------------
+
+Player Omer have 200M and he landed on Lots Square (31 )
+
+Faruk your turn :
+
+Player Faruk have 20M and he landed on Community Chest Square (33 )
+
+Dice are : 3 6 and Total dice value :9
+
+Player Faruk have 20M and he landed on Community Chest Square (2 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 150M and he landed on Jail Square (10 )
+
+Dice are : 4 1 and Total dice value :5
+
+----------------------------
+
+1
+
+1
+
+----------------------------
+
+Player Saadeddin have 150M and he landed on RailRoad Square (15 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Community Chest Square (33 )
+
+Dice are : 2 3 and Total dice value :5
+
+Player Ilyas have 125M and he landed on Luxury Tax Square (38 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on Lots Square (31 )
+
+Dice are : 4 1 and Total dice value :5
+
+Player Omer have 200M and he landed on ChanceSquare (36 )
+
+Faruk your turn :
+
+Player Faruk have 20M and he landed on Community Chest Square (2 )
+
+Dice are : 6 3 and Total dice value :9
+
+----------------------------
+
+4
+
+5
+
+----------------------------
+
+Player Faruk have 20M and he landed on Lots Square (11 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 150M and he landed on RailRoad Square (15 )
+
+Dice are : 5 4 and Total dice value :9
+
+----------------------------
+
+5
+
+4
+
+----------------------------
+
+Player Saadeddin have 150M and he landed on Lots Square (24 )
+
+Ilyas your turn :
+
+Player Ilyas have 125M and he landed on Luxury Tax Square (38 )
+
+Dice are : 5 2 and Total dice value :7
+
+----------------------------
+
+1
+
+5
+
+----------------------------
+
+Player Ilyas have 125M and he landed on RailRoad Square (5 )
+
+Omer your turn :
+
+Player Omer have 200M and he landed on ChanceSquare (36 )
+
+Dice are : 4 5 and Total dice value :9
+
+Player Omer have 130M and he landed on RailRoad Square (5 )
+
+Faruk your turn :
+
+Player Faruk have 20M and he landed on Lots Square (11 )
+
+Dice are : 6 6 and Total dice value :12
+
+----------------------------
+
+4
+
+6
+
+----------------------------
+
+Player Faruk have 20M and he landed on Lots Square (23 )
+
+Double Dice!! Rolling Again ...
+
+Player Faruk have 20M and he landed on Lots Square (23 )
+
+Dice are : 6 1 and Total dice value :7
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 150M and he landed on Lots Square (24 )
+
+Dice are : 6 3 and Total dice value :9
+
+Player Saadeddin have 150M and he landed on Community Chest Square (33 )
+
+Ilyas your turn :
+
+Player Ilyas have 195M and he landed on RailRoad Square (5 )
+
+Dice are : 1 1 and Total dice value :2
+
+Player Ilyas have 195M and he landed on ChanceSquare (7 )
+
+Double Dice!! Rolling Again ...
+
+Player Ilyas have 195M and he landed on ChanceSquare (7 )
+
+Dice are : 5 3 and Total dice value :8
+
+----------------------------
+
+6
+
+6
+
+----------------------------
+
+Player Ilyas have 195M and he landed on RailRoad Square (15 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on RailRoad Square (5 )
+
+Dice are : 3 5 and Total dice value :8
+
+----------------------------
+
+1
+
+4
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (13 )
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to roll dice
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+Dice are : 2 3 and Total dice value :5
+
+Staying on Jail
+
+Saadeddin your turn :
+
+Player Saadeddin have 150M and he landed on Community Chest Square (33 )
+
+Dice are : 2 3 and Total dice value :5
+
+Player Saadeddin have 75M and he landed on Luxury Tax Square (38 )
+
+Ilyas your turn :
+
+Player Ilyas have 195M and he landed on RailRoad Square (15 )
+
+Dice are : 5 4 and Total dice value :9
+
+----------------------------
+
+2
+
+2
+
+----------------------------
+
+Player Ilyas have 195M and he landed on Lots Square (24 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (13 )
+
+Dice are : 2 6 and Total dice value :8
+
+----------------------------
+
+3
+
+6
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (21 )
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to roll dice
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+Dice are : 6 3 and Total dice value :9
+
+Staying on Jail
+
+Saadeddin your turn :
+
+Player Saadeddin have 75M and he landed on Luxury Tax Square (38 )
+
+Dice are : 5 6 and Total dice value :11
+
+----------------------------
+
+2
+
+1
+
+----------------------------
+
+Player Saadeddin have 75M and he landed on Lots Square (9 )
+
+Ilyas your turn :
+
+Player Ilyas have 195M and he landed on Lots Square (24 )
+
+Dice are : 2 4 and Total dice value :6
+
+Player Ilyas have 195M and he landed on Jail Square (10 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (21 )
+
+Dice are : 6 2 and Total dice value :8
+
+----------------------------
+
+1
+
+6
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (29 )
+
+Player Faruk have 20M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to pay 50M for rescure
+
+Faruk is bankruptcy.
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (29 )
+
+Dice are : 3 1 and Total dice value :4
+
+Player Omer have 130M and he landed on Community Chest Square (33 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 75M and he landed on Lots Square (9 )
+
+Dice are : 3 3 and Total dice value :6
+
+Player Saadeddin have 20M and he landed on RailRoad Square (15 )
+
+Double Dice!! Rolling Again ...
+
+Player Saadeddin have 20M and he landed on RailRoad Square (15 )
+
+Dice are : 6 3 and Total dice value :9
+
+----------------------------
+
+4
+
+6
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (24 )
+
+Player Ilyas have 250M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to roll dice
+
+Player Ilyas have 250M and he landed on Jail Square (10 )
+
+Dice are : 1 3 and Total dice value :4
+
+Staying on Jail
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Community Chest Square (33 )
+
+Dice are : 5 1 and Total dice value :6
+
+----------------------------
+
+4
+
+6
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (39 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (24 )
+
+Dice are : 6 4 and Total dice value :10
+
+----------------------------
+
+4
+
+6
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (34 )
+
+Player Ilyas have 250M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to roll dice
+
+Player Ilyas have 250M and he landed on Jail Square (10 )
+
+Dice are : 3 1 and Total dice value :4
+
+Staying on Jail
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (39 )
+
+Dice are : 4 4 and Total dice value :8
+
+Player Omer have 130M and he landed on ChanceSquare (7 )
+
+Double Dice!! Rolling Again ...
+
+Player Omer have 130M and he landed on ChanceSquare (7 )
+
+Dice are : 2 4 and Total dice value :6
+
+----------------------------
+
+5
+
+6
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (13 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (34 )
+
+Dice are : 6 2 and Total dice value :8
+
+Player Saadeddin have 20M and he landed on Community Chest Square (2 )
+
+Player Ilyas have 250M and he landed on Jail Square (10 )
+
+You have penalty which one do you prefer :
+1.Roll Dice
+2.Pay 50$
+
+
+I want to pay 50M for rescure
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (13 )
+
+Dice are : 6 5 and Total dice value :11
+
+----------------------------
+
+6
+
+1
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (24 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Community Chest Square (2 )
+
+Dice are : 3 3 and Total dice value :6
+
+----------------------------
+
+3
+
+5
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (8 )
+
+Double Dice!! Rolling Again ...
+
+Player Saadeddin have 20M and he landed on Lots Square (8 )
+
+Dice are : 2 6 and Total dice value :8
+
+Player Saadeddin have 20M and he landed on Lots Square (16 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Jail Square (10 )
+
+Dice are : 1 5 and Total dice value :6
+
+Player Ilyas have 200M and he landed on Lots Square (16 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (24 )
+
+Dice are : 3 4 and Total dice value :7
+
+----------------------------
+
+5
+
+1
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (31 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (16 )
+
+Dice are : 1 2 and Total dice value :3
+
+----------------------------
+
+1
+
+6
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (19 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Lots Square (16 )
+
+Dice are : 6 6 and Total dice value :12
+
+----------------------------
+
+4
+
+6
+
+----------------------------
+
+Player Ilyas have 200M and he landed on Utility Square (28 )
+
+Double Dice!! Rolling Again ...
+
+Player Ilyas have 200M and he landed on Utility Square (28 )
+
+Dice are : 1 2 and Total dice value :3
+
+----------------------------
+
+2
+
+2
+
+----------------------------
+
+Player Ilyas have 200M and he landed on Lots Square (31 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (31 )
+
+Dice are : 1 2 and Total dice value :3
+
+----------------------------
+
+4
+
+5
+
+----------------------------
+
+Player Omer have 130M and he landed on Lots Square (34 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (19 )
+
+Dice are : 4 3 and Total dice value :7
+
+----------------------------
+
+4
+
+3
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (26 )
+
+Ilyas your turn :
+
+Player Ilyas have 200M and he landed on Lots Square (31 )
+
+Dice are : 4 3 and Total dice value :7
+
+Player Ilyas have 125M and he landed on Luxury Tax Square (38 )
+
+Omer your turn :
+
+Player Omer have 130M and he landed on Lots Square (34 )
+
+Dice are : 2 5 and Total dice value :7
+
+----------------------------
+
+4
+
+1
+
+----------------------------
+
+Player Omer have 70M and he landed on Lots Square (1 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (26 )
+
+Dice are : 6 5 and Total dice value :11
+
+----------------------------
+
+3
+
+1
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (37 )
+
+Ilyas your turn :
+
+Player Ilyas have 125M and he landed on Luxury Tax Square (38 )
+
+Dice are : 6 4 and Total dice value :10
+
+----------------------------
+
+6
+
+6
+
+----------------------------
+
+Player Ilyas have 25M and he landed on Lots Square (8 )
+
+Omer your turn :
+
+Player Omer have 70M and he landed on Lots Square (1 )
+
+Dice are : 4 5 and Total dice value :9
+
+Player Omer have 70M and he landed on Jail Square (10 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (37 )
+
+Dice are : 4 5 and Total dice value :9
+
+----------------------------
+
+6
+
+2
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (6 )
+
+Ilyas your turn :
+
+Player Ilyas have 25M and he landed on Lots Square (8 )
+
+Dice are : 6 2 and Total dice value :8
+
+Player Ilyas have 25M and he landed on Lots Square (16 )
+
+Omer your turn :
+
+Player Omer have 70M and he landed on Jail Square (10 )
+
+Dice are : 3 3 and Total dice value :6
+
+Player Omer have 70M and he landed on Lots Square (16 )
+
+Double Dice!! Rolling Again ...
+
+Player Omer have 70M and he landed on Lots Square (16 )
+
+Dice are : 3 4 and Total dice value :7
+
+----------------------------
+
+3
+
+1
+
+----------------------------
+
+Player Omer have 70M and he landed on Lots Square (23 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (6 )
+
+Dice are : 1 2 and Total dice value :3
+
+----------------------------
+
+6
+
+5
+
+----------------------------
+
+Player Saadeddin have 20M and he landed on Lots Square (9 )
+
+Ilyas your turn :
+
+Player Ilyas have 25M and he landed on Lots Square (16 )
+
+Dice are : 3 5 and Total dice value :8
+
+----------------------------
+
+2
+
+5
+
+----------------------------
+
+Player Ilyas have 25M and he landed on Lots Square (24 )
+
+Omer your turn :
+
+Player Omer have 70M and he landed on Lots Square (23 )
+
+Dice are : 4 5 and Total dice value :9
+
+----------------------------
+
+1
+
+2
+
+----------------------------
+
+Player Omer have 70M and he landed on Lots Square (32 )
+
+Saadeddin your turn :
+
+Player Saadeddin have 20M and he landed on Lots Square (9 )
+
+Dice are : 2 4 and Total dice value :6
+
+Saadeddin is bankruptcy.
+
+Omer your turn :
+
+Player Omer have 70M and he landed on Lots Square (32 )
+
+Dice are : 2 3 and Total dice value :5
+
+----------------------------
+
+1
+
+3
+
+----------------------------
+
+Player Omer have 70M and he landed on Lots Square (37 )
+
+Ilyas your turn :
+
+Player Ilyas have 80M and he landed on Lots Square (24 )
+
+Dice are : 1 1 and Total dice value :2
+
+----------------------------
+
+2
+
+1
+
+----------------------------
+
+Player Ilyas have 80M and he landed on Lots Square (26 )
+
+Double Dice!! Rolling Again ...
+
+Player Ilyas have 80M and he landed on Lots Square (26 )
+
+Dice are : 3 4 and Total dice value :7
+
+Player Ilyas have 80M and he landed on Community Chest Square (33 )
+
+Omer your turn :
+
+Player Omer have 70M and he landed on Lots Square (37 )
+
+Dice are : 3 3 and Total dice value :6
+
+----------------------------
+
+6
+
+4
+
+----------------------------
+
+Player Omer have 10M and he landed on Lots Square (3 )
+
+Double Dice!! Rolling Again ...
+
+Player Omer have 10M and he landed on Lots Square (3 )
+
+Dice are : 3 3 and Total dice value :6
+
+----------------------------
+
+3
+
+2
+
+----------------------------
+
+Player Omer have 10M and he landed on Lots Square (9 )
+
+Double Dice!! Rolling Again ...
+
+Player Omer have 10M and he landed on Lots Square (9 )
+
+Dice are : 5 1 and Total dice value :6
+
+Omer is bankruptcy.
+
+Ilyas your turn :
+
+Player Ilyas have 135M and he landed on Community Chest Square (33 )
+
+Dice are : 1 2 and Total dice value :3
+
+Player Ilyas have 135M and he landed on ChanceSquare (36 )
