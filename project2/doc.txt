@@ -1,0 +1,1090 @@
+Real Time Data Acquisition in
+Wireless Sensor Networks
+Mujdat Soyturk1, Halil Cicibas2 and Omer Unal2
+1Istanbul Technical University
+2Turkish Naval Academy
+Turkey
+1. Introduction
+Implementation of low cost sensor nodes in recent years allow sensor nodes to be applicable
+in many different areas e.g. environment monitoring, homeland security and disaster relief
+operations. One major contribution is their high demand on data acquisition. Real-time
+data acquisition is more challenging and promising issue in these application areas. There
+are many approaches and solutions proposed for real-time data acquisition in the literature.
+In this chapter, we focus on real-time data acquisition in wireless sensor networks.
+Wireless Sensor Networks (WSNs) consist of many tiny wireless sensors which operate in an
+environment in order to collect data for a specific mission. In most type of WSNs, once
+sensor nodes are deployed, thereafter no additional actions are employed. In a typical WSN,
+data is gathered from the environment by sensor nodes, aggregated in intermediate nodes
+and then transmitted to a base station. Because all these operations are executed by sensor
+nodes with limited power in a wireless media; reliable communication, power efficiency and
+network survivability issues are among critical concerns. WSNs are different from
+traditional networks because of their inherent characteristics. The specific properties of these
+networks pose various challenges such as energy consumption, limited bandwidth, and low
+storage. In the following sections we will introduce these constraints in detail.
+WSNs can be used in a wide range of application areas. Networks e.g. composed of video and
+audio sensors can be used to provide monitoring and surveillance systems or can be used to
+enhance the existing ones. Some critical areas for homeland security, such as borders, gulfs,
+strait entrances and port approach waters, are subject to enemy infiltration in crisis and in
+wartime. Using an instantly deployable network composed of sensor nodes in these operation
+areas would be a good solution to increase the probability of detecting a penetration in a cost
+effective and efficient way than the conventional ones. Some applications, e.g. military
+operations, introduce additional requirements on sensor and ad-hoc networks such as
+reliability and operating in real-time. Limited battery life of the nodes requires efficient energy
+consumption techniques which challenge real-time and reliability requirements.
+There are many routing approaches to provide either or both of the objectives of reducing the
+end-to-end delay and providing the reliability. However, most of these routing approaches
+challenge with other aspects such as energy-efficiency, long-lifetime and low-cost expect of the
+system. Energy aware protocols in the literature generally use multi-hop paths to use energy
+more efficiently. However, increase in number of hops between the source and the destination
+www.intechopen.com
+Data Acquisition
+64
+nodes bears some issues that must be considered (Monaco et al, 2006) (Du et al, 2006). First of
+all, nodes close to the sink deplete their energies quickly; leaving the sink unreachable and
+forcing the system into off-state (Yuan et al, 2007). Secondly, increase in the hop-number cause
+more nodes to buffer the packet on-the-route, causing a processing overhead and delay at inbetween
+nodes. Processing overhead and buffer fill-up may cause packets to be dropped. On
+the other hand, delay at nodes may prevent to fulfill the real-time requirements of the system
+(Monaco et al, 2006). As the network size grows, the length of the constructed paths will
+increase, causing the problem described above more challenging. New routing techniques
+which provide reliability and real-time response to sensor readings in energy efficient way are
+always required in Wireless Sensor and Ad Hoc Networks.
+Mobility is the other major concern that hardens the problem. Mobility of nodes degrades the
+performance of the system, making the problem more challenging and impractical. Mobility
+introduces additional overhead, increases complexity and makes the conventional routing
+algorithms fail. Therefore, novel and special algorithms are required for mobile environments.
+In this study we introduce and discuss some proposed MAC protocols, routing protocols
+and aggregation techniques which address real-time needs in literature. Then we present
+two applications for real-time data acquisition using WSN. The structure of this chapter is
+as follows. In Section 2, we define real time data acquisition and relevant constraints. Real
+time communication issues are also discussed in this section. MAC layer and network layer
+protocols are presented in Section 3 and Section 4, respectively. In Section 5, aggregation
+techniques are stated. We give two sample Real-Time WSN applications in Section 6.
+2. Real-time data acquisition
+Real-time data acquisition can be stated as collecting, processing and transmitting data in
+predetermined latency boundaries. It mainly includes sampling, MAC layer operations,
+network layer routing, data aggregation and some additional processes.
+Real-time data acquisition is a mandatory issue which must be considered in some WSN
+applications. This application may be a surveillance system, a temperature detector (He et
+al, 2006)(Lu et al, 2005), fire monitoring or intruder tracking system. Thus, the sensor data
+will be valid only within limited time duration (Felemban et al, 2005).
+Real-time QoS is classified into two categories: hard real-time and soft real-time. In hard
+real-time, end-to-end delay boundaries are described as deterministic values. Latency in a
+message's delivery higher than this value will be a failure. However in soft real-time, a
+probabilistic latency value is used and some delay delay is tolerable (Li et al, 2007). The
+delay metric in every process stage determines the latency issues in algorithms and
+approaches. So in order to design a real-time WSN system, each process stage should be
+well designed.
+2.1 Real time data acquisition constraints in WSN
+In [Akyildiz et al, 2002], constraints in WSN are classified as sensor node constraints and
+networking constraints. These constraints also affect the real time data acquisition. In the
+Section 2.2, we present relations between real time data acquisition and these constraints.
+2.1.1 Sensor node constraints
+These constraints are mostly hardware related. The capabilities and constraints of a sensor
+node's hardware affect the latency. These constraints are listed as follows:
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+65
+Limited Memory and Storage Space: The data size is important in guaranteeing real time data
+acquisition because sensor nodes are small devices and they have limited storage spaces,
+memories and processors. For example, there must be sufficient memory space and
+processor in order to aggregate data. If this process is executed by non-sufficient memory
+nodes, this may increase delay.
+Energy Limitation: Energy is consumed during both computation and communication
+processes within a node. Energy limitation is one major constraint that affects the
+capabilities of sensor nodes extremely. Optimal solutions must be determined in order to
+transmit real-time data while consuming low communication power. Energy consumption
+in aggregation process is another critical issue.
+Environmental Limitations: Sensor nodes have to struggle with many environmental
+difficulties such as physical obstacles, node terminations, unpredictable errors that avoid
+functioning of nodes, or communication interferences
+2.1.2 Networking constraints
+In addition to hardware-related constraints, real-time data acquisition in WSNs is affected
+by network-related constraints.
+Communication Constraints: In order to provide a real time communication scheme between
+nodes, some preventive actions have to be taken. The relevant subjects of communication
+constraints are: [Akyildiz et al, 2002].
+• Unreliable communication
+• Bandwidth limitation
+• Frequent routing changes
+• Channel error rate
+Additional Limitations: Most WSNs are deployed for specific reasons or objectives. This
+emerges new constraints specific to the applied area.
+• Node mobility
+• Intermittent connectivity
+• Isolated subgroups
+• Population density
+In order to guarantee real time requirements all these constraints must be considered.
+2.2 Real-time communications in WSNs
+In this section we define the communication issues in MAC protocols, routing protocols and
+data aggregation process. We try to emphasize how these affect real time communication.
+High utilization of bandwidth, reducing collisions, low latency, dynamic and fast operation
+of medium access control mechanism, fairness along with ensuring energy efficiency are
+among major concerns for a WSN’s performance. A MAC algorithm must also achieve
+fairness, where every node should be allowed to transmit its data by considering efficiency
+and urgency.
+A MAC protocol may adopt a distributed or a centralized approach. A distributed MAC
+protocol, where each sensor node determines its cycle behavior, is simple and easy-toimplement.
+This approach, however, is susceptible to collisions that reduce bandwidth
+utilizations and efficiency. The other type of MAC protocol, that is the centralized one,
+provides easy medium access management, simple synchronization, and low packet losses
+due to the frequency differences. However, such a protocol has some drawbacks; relatively
+www.intechopen.com
+Data Acquisition
+66
+short lifetime of cluster-head nodes, registration requirements, and additional energy
+consumption of mobile nodes when registering to a new cluster-head. MAC layer collisions
+increase end-to-end latency, jitter, and time-outs. Retransmitted packets cause overheads
+and underutilize the limited bandwidth. In Section 3 we define more issues, related with
+MAC layer protocols.
+The performance of a MAC algorithm affects the network layer routing algorithm. While
+MAC layer decides which node will use the medium to transmit, network layer decides the
+next node to transmit. Routing decision directly affects end-to-end latency, congestion and
+bandwidth utilization. A routing protocol includes discovery of neighborhood, selection of
+next forwarding node, traffic load balancing and congestion handling processes. For a realtime
+system, all the issues mentioned must be provided with minimum jitter in a given time
+limitation. We detail network layer routing protocols in Section 5.
+Another key concern in WSN communication is data aggregation, in which sensed data is
+combined into a single message and then, transmitted to a base station (Heinzelman et al.,
+2000) by sensors. The goal of data aggregation is to reduce the communication load which
+directly affects the efficiency of MAC protocol and network layer routing in a WSN. Such an
+operation must be organized in a systematic way because data aggregation increases latency
+and energy consumption. In adaptation of an aggregation technique, causative latency and
+energy consumption should be considered.
+3. Medium access in WSNs
+Wireless communications use a shared medium. This means that in a signal range, in one
+period of time, only one instance can send data. It is the MAC protocol’s duty to transmit
+frames over this medium. Because of the limitations of power and network lifetime, the
+medium access process is harder due to the low-duty cycles of the nodes within a WSN.
+Designing a good MAC protocol requires taking several parameters into consideration.
+Energy efficiency, scalability, adaptability, reliability, throughput, utilization of bandwidth,
+and latency are among these. We focus on, first, energy consumption issue, and then, low
+latency data delivery issue which is required for real-time applications. We present the
+energy wastage reasons in MAC protocols, and then discuss the proposed MAC protocols
+from the real-time communication view, and lastly present a comparison table of the
+protocols.
+3.1 Reasons of energy waste
+The most energy wastage sources in MAC protocols for WSNs are (Demirkol et al, 2006)
+defined as follows. The first one is collisions, when a node receives more two or more
+packets simultaneously. The retransmission of the collided packets increases the energy
+consumption. The second one is idle-listening. This occurs when a node listens an idle
+channel to receive traffic. The third one is overhearing, that means a sensor node receives
+packets that are destined for other nodes. The fourth one is control packet overheads. These
+packets are required to control the access to the channel. The fifth one is over-emitting. This
+occurs when a message is transmitted to a destination node which is not ready to receive.
+Additionally, transition between cycles of sleep, idle, receive and transmit also increases
+energy consumption. All these factors must be paid attention for designing an energy
+efficient protocol.
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+67
+Another issue for reducing the energy consumption is that MAC protocols have a policy for
+duty cycles and switching off the radio. Basic protocols use a fixed duty cycle, and some
+others implement adaptive duty cycle, in which they adapt to changes in traffic over time and
+place (Langendoen, 2007).
+3.2 IEEE 802.11
+It is the standard for WLANs. It provides low latency and high throughput, but due to idle
+listening, its energy consumption is high. Therefore this protocol cannot be used for WSNs
+(Ye at al, 2001).
+3.3 Real time MAC approaches
+In WSNs, bandwidth utilization, channel access delay and energy consumption parameters
+are mainly determined by the MAC protocol. Considering a layered protocol stack, routing
+in the network layer determines the end-to-end or multi-hop delay, as the MAC layer settles
+single-hop or channel access delay. There are also cross-layer approaches developed in the
+literature for an optimized communication (Li et al, 2007) as discussed in Section 3.4.
+I-EDF: (Caccamo et al., 2002) Implicit Prioritized Access Protocol (I-EDF) guarantees a HRT
+delay, using cellular backbone network. It offers collision-free communication via its mixed
+TDMA and FDMA scheme. It assures high throughput even in high loads.
+Dual-Mode MAC Protocol: (Watteyne et al., 2006) supports HRT which adapts a linear
+network with identical nodes. In order to achieve a collision-free communication, it uses
+TDMA for global synchronization and a mixed FDMA-TMA scheme is adopted. Energyefficiency
+is also aimed in this protocol.
+DMAC: (Lu et al., 2004) was proposed for unidirectional data gathering trees. It balances the
+nodes’ active/sleep cycles due to their depths on tree, thus eliminates the sleep delay, and
+incessant traffic forwarding is achieved. It is shown that DMAC is both energy efficient and
+low-delay bounded.
+SIFT: (Jamieson et al., 2003) SIFT is designed for event-driven applications. To select a slot
+within the slotted contention window, a probability distribution function is used. It is
+efficient in terms of latency when many nodes want to send packets, however related energy
+consumption is a trade-off. Also, it introduces idle-listening and overhearing.
+DSMAC: (Lin et al, 2004) Dynamic Sensor MAC has dynamic duty cycle property in
+addition to S-MAC (Ye et al.,2004). Decreasing the latency is the primary goal. Nodes have a
+SYNC period where sleep cycles are shortened when needed. It has better latency than SMAC.
+DB-MAC: (Bacco et al., 2004) It is a contention-based protocol aimed for reducing the delay
+in hierarchically structured applications. It employs a prioritized access mechanism and
+therefore reduces energy consumption and delay.
+Z-MAC: (Rhee et al., 2005) It applies dynamic shift between SDMA and TDMA. It is
+topology-aware and performs well when there is high contention.
+PEDAMACS: (Ergen & Varaiya, 2006) It has high powered access points which can be
+reached by one hop. They gather topology information and apply a scheduling algorithm.
+Bounded delay as well as energy efficiency is guaranteed.
+A comparison of the afore mentioned MAC protocols is given in Table 1 to identify their
+QoS support and major differences.
+www.intechopen.com
+Data Acquisition
+68
+Protocol
+Name
+MAC Type
+Latency/
+RT Type
+Energy
+Efficiency
+Centralized/
+Distributed
+Scalability
+*S-MAC CSMA/CA best effort high Distributed good
+*T-MAC CSMA/CA best effort high Distributed good
+*B-MAC CSMA/CA best effort high Distributed good
+I-EDF FDMA-TDMA HRT NA Centralized moderate
+Dual Mode
+MAC
+FDMA-TDMA HRT NA Centralized moderate
+D-MAC contention-based Best effort Moderate Distributed good
+DBMAC contention-based Best effort High Distributed good
+Z-MAC CSMA-TDMA Best effort High Hybrid moderate
+PEDEMACS TDMA HRT High Centralized low
+IEEE 802.15.4
+Slotted
+CSMA/CA, GTS
+Best effort /
+HRT
+Moderate Distributed good
+SIFT CSMA/CA
+Very low
+latency
+Low Distributed
+DSMAC CSMA Low latency High Distributed good
+Table 1. A comparison of MAC Protocols. “*” notated ones are non-real-time protocols.
+3.4 Cross-layer solutions
+There are some designs in the literature that aim to achieve real time parameters in a cross
+layer approach. This enables a higher layer to communicate with lower distant layers.
+RAP: (Lu et al., 2002) Discussed in section 4.2.
+MERLIN: (Ruzzelli et al., 2006) This protocol aims both low latency and energy efficiency,
+that combines MAC and routing protocols and applies a hybrid CSMA TDMA scheme. A
+schedule table is used to relay packets, in which the network is seperated into time regions
+with respect to hop numbers to the sink node.
+VigilNet: (He et al., 2006) It is developed for real time target detection and tracking in a
+large area. It adapts multi path diffusion tree. Energy consumption is aimed as well. This
+application is detailed in section 6.1.
+In summary, the parameters of a layer in the communication stack are reported to the next
+layer up. Coordination among lower and upper layers is made possible. There are two
+methods for a cross-layer design. The first one is to enhance the effectiveness of the protocol
+based on the parameters in other layers. The second one is to unite the related protocols in a
+single part. While this may allow a closer communication with all protocols, the connection
+is hard to distinguish. Also, the merged component's functionality can be very complicated.
+So it is preferable to allow transparency between the layers (Li et al, 2007).
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+69
+4. Real time routing protocols in WSNs
+Though the MAC layer can deliver packets considering real time needs, its effect remains
+local. Real-time requirements for end-to-end connections (or communication) should be
+satisfied. Routing protocols are those that should have ability to satisfy end-to-end real-time
+requirements (He et al., 2003). They are provided as either deterministic or probabilistic
+delay guarantee (Li et al., 2007).
+4.1 Real time routing protocols design issues
+End-to-end delay is mainly affected by the applied routing scheme. Therefore, some design
+issues must be considered in the design of routing protocols. These issues are well
+summarized in (Akyýldýz et al., 2002) and (Al-Karaki & Kamal, 2004) as follows:
+Energy consumption: Sensor node lifetime shows a strong dependence on the battery lifetime
+(Heinzelman et al., 2000). Each sensor in a WSN can act as a relay unit, hence energy
+consumption become as an important issue. If energy consumption is not managed
+properly, some node’s batteries may exhaust. These malfunctioning nodes can cause
+topological changes and might require rerouting of packets and reorganization of the
+network (Al-Karaki & Kamal, 2004). It is to note that reorganization and rerouting processes
+increase the end-to-end-delay.
+Data Reporting Model: This issue affects the delivering latency of a data packet. The data
+delivering method can be categorized as either time-driven, event-driven, query-driven, and
+hybrid (Al-Karaki & Kamal, 2004). Event-driven and time-driven (with low period)
+approaches can be considered in real time routing protocols.
+Fault Tolerance: Some sensor nodes may fail because of internal or external reasons such as
+power exhaustion or environmental factors. In addition to MAC layer, the routing protocols
+have to find new forwarding choices in order to relay the data timely or in a low latency
+bound (Al-Karaki & Kamal, 2004). So while designing a real time routing protocol fault
+tolerance techniques must be determined.
+Scalability: With the increase of the network size, the management would become more
+complicated. A real time routing protocol should be scalable enough to respond to events in
+the environment timely (Al-Karaki & Kamal, 2004). In order to relay a delay-constraint data
+time-synchronization techniques may be while coordinating a huge network.
+Network Dynamics: It is to note that a network is a dynamic form which can adjust
+themselves according to environmental factors and needs. For example the location of nodes
+or the amount of data can change in time. These changes may cause some delay while
+transmitting a data. The real time routing protocol must consider such as network
+dynamics.
+Transmission Media: This part is discussed in Section 3.
+Quality of Service: In addition to bounded latency some routing protocols have to concern
+other QoS metrics such as accuracy or long network lifetime. Hence real time routing
+protocols are required to capture these requirements.
+These issues are not the only ones which can be used to distinguish the routing protocols.
+But they are the mandatory ones. While designing a routing protocol which addresses real
+time or latency, these issues must be concerned in all steps.
+www.intechopen.com
+Data Acquisition
+70
+4.2 Real time routing protocols
+A number of real time routing protocols are proposed for WSNs in literature. We can list
+key real time routing protocols as follows:
+RAP is the first routing protocol (Lu et al., 2002) which addresses real time requirements
+using a cross-layer design. In RAP each packet is given a prioritization level called as
+requested velocity and this parameter of each packet is determined locally. It is assumed in
+protocol, the routing layer is aware of physical geography.
+SPEED (He et al., 2003) can be considered as a benchmark real time routing protocol among
+others. It affords three types of real-time communication services as real-time unicast, realtime
+area-multicast and real-time area-anycast. SPEED bases on a stateless non-deterministic
+geographic forwarding routing protocol which enables to find a next hop that is closer to the
+destination with its location aware structure.
+Another real time routing protocol is MMSPEED (Felemban et al., 2005) which can be stated
+as an extension of SPEED. It is designed to provide a timeliness and reliable routing schema
+as an approach between the network and the MAC layers. The main difference of
+MMSPEED from SPEED is supporting different delivery velocities and levels of reliability.
+A real-time power-aware routing (RPAR) protocol (Chipara et al., 2006) is proposed to adapt
+the transmission power and routing decision mechanisms dynamically. RPAR differs from
+the above protocols via the following features:
+• Trade-off between energy consumption and communication delay
+• A novel approach to handle lossy links
+• Neighborhood management mechanism
+Pothuri et al proposes an energy efficient delay-constrained heuristic solution (Pothuri,
+2006) which is based on estimating of end-to-end delay. It is to note that the proposed
+algorithm is well suitable for small scale WSN applications.
+Cheng et al introduce a novel real time routing protocol (Cheng et al., 2006) in which all
+path’s end-to-end delay requirements are determined. In the proposed study each sensor
+node can decide its forwarding node due to the value of the links requirements. So it is
+not necessary to calculate the sum of each link’s delay along the path. Hence the
+proposed algorithm differ from with its reduced overhead and simplified route discovery
+mechanism.
+Directional Geographical Real-Time Routing (DGR) protocol’s goal is to find a solution for
+real time video streaming while taking into consideration a number of resource and
+performance constraints (Chen et al., 2007). It proposes a novel multipath routing schema
+which regards forward error correction (FEC) coding.
+Real Time Load Distributed Routing Protocol (RTLD) (Ali et al., 2008) aims link reliability
+and packet velocity through one-hop while providing energy efficiency in real time
+communication. In RTLD, the forwarding node is determined via optimal values of velocity,
+called PRR and the remaining power. It differs from other real time routing protocols with
+its feature which utilize the remaining power parameter to select the forwarding candidate
+node.
+Soyturk and Altilar introduce a novel real time data acquisition approach (Soyturk&Altilar,
+2008) which can also be used for rapidly deployable Mission-Critical Wireless Sensor
+Networks. It is based on the real-time routing algorithm, namely Stateless Weighted
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+71
+Routing (SWR) algorithm. Data is carried over multiple paths simultaneously to provide
+reliability and to provide time limitations. It is a completely stateless routing approach that
+nodes do not need any topology knowledge for routing. Algorithm is simple and efficient
+which reduces the complexity at nodes and hence provides low-cost architecture.
+In the proposed approach the routing tables are not hold in nodes thus they don't know
+their neighbors' information. The routing decision is made due to weight values of nodes.
+These values are calculated from geographical position and some QoS parameters, as shown
+in Equation (1);
+weight of node i , wi = locationi + parametersi + parametersnetwork (1)
+These weight values of nodes are depend on remaining power or else. This technique
+reduces delay, energy consumption and processing requirement. The existing packet header
+and QoS fields in SWR are depicted in Fig. 1.
+Fig. 1. Simple packet header and its QoS fields (Soyturk&Altilar, 2008)
+Basically the SWR works as follows (Soyturk&Altilar, 2006): The source node determines the
+weight value of packet and adjusts this value into the packet then broadcast it. When an
+intermediate node receives packet, it compares the packet’s weight value and its own
+weight value. If its weight value is smaller than the transmitting node’s weight value and
+the destination’s weight value (that is 0 for sink), it rebroadcasts the packet, otherwise drops
+the packet.
+The proposed algorithm (Soyturk & Altilar, 2006):
+• provides scalability since neither routing tables nor beaconing is used.
+• simplifies the routing process by designing an appropriate algorithm which utilizes a
+weight metric.
+• decreases calculations, delay, and resource requirements (such as processor and
+memory) at nodes since a weight metric is used instead of time consuming operations
+on routing tables.
+• decreases energy consumption by;
+• not beaconing,
+• considering the remaining energy levels at nodes,
+• limiting the number of relaying nodes.
+• provides reliability by exploiting multiple paths and recovering from voids.
+• executes routing process completely in the network layer, independent of the MAC
+layer underneath.
+www.intechopen.com
+Data Acquisition
+72
+The key contribution of SWR is eliminating the communication overhead and energy
+consumption produced in topology learning approaches. SWR utilizes resources allowing
+data flow over multiple paths rather than prior topology learning and path construction.
+Simulations prove that SWR is scalable in both large and mobile networks.
+4.3 Comparison of routing protocols in WSN
+We compare routing protocols stated above according to basic criteria (1-7) and functional
+criteria (8-11) in Table 2. This comparison is based on the issues defined in the chapter. No
+additional experiments or simulation is made to evaluate them. We do not include (Chen et
+al., 2007) and (Pothuri,2006) to comparison list because the stated criteria of them are not
+enough to fill the table and not fully correspond our criteria.
+5. Real time data aggregation in WSN
+5.1 Delay considerations for real-time data aggregation
+In WSN, nodes sense and transmit data to the base station or a sink node. Base station or the
+sink node has to perform data collecting in a systematic way while considering constraints
+in WSN. Among collected data, there needs to be some correlation and combining processes
+in order to achieve high quality information delivery. This can be accomplished by data
+aggregation. Data aggregation is defined as “the process of gathering the data from multiple
+sensors in order to eliminate redundant transmission and provide united and meaningful information
+to the base station” (Rajagopalan & Varshney, 2006). The main goal of data aggregation is to
+enhance network lifetime by reducing transmission power consumption in addition to
+increase the quality of delivered information.
+If we figure out data aggregation in a tree based approach, which is shown in Fig. 2, E
+aggregates packets of B and A.
+Fig. 2. An example of data aggregation (Heinzelman et al., 2000)
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+73
+No Criteria RAP SPEED
+MMSPEED
+RPAR RTLD
+(Soyturk & Altilar,
+2006)
+(Cheng et al.,2006)
+1.
+Control
+packet
+overhead
+Moderate Moderate Low Low Low Low Low
+2.
+Energy
+Consumptio
+n
+N.M. Moderate N.M. Moderate Low Low Low
+3. Reliability N.M. N.M. Moderate N.M. High High N.M.
+4.
+Algorithm
+Complexity
+N.M. Moderate High N.M. N.M. Low N.M.
+5.
+Void
+avoidance/
+recovery
+N.M. Yes Yes Yes N.M. Yes No
+6. Scalability
+Large Scale
+and High
+Density
+Medium
+scale and
+high
+density
+networks
+Large
+scale and
+high
+density
+networks
+Large Scale
+Networks
+N.M.
+Large Scale, High
+Density, and
+Mission-Critical
+N.M.
+7.
+Node
+Discovery
+Methodology
+Nodes are
+aware of
+physical
+geography
+Beacon
+exchange
+mechanism
+Via
+periodic
+location
+update
+packets
+On-demand
+neigborhood
+management
+Via
+invoke
+packet
+Nodes do not need
+to know their
+neighbors
+Via reply messages
+to broadcasting
+N.M. : This feature is not mentioned in protocol
+Table 2. Comparison of Delay-Constraint Routing Protocols in WSNs
+www.intechopen.com
+Data Acquisition
+74
+No Criteria RAP SPEED
+MMSPEED
+RPAR RTLD
+(Soyturk&Altilar,
+2006)
+(Cheng et al.,2006)
+8.
+Forwarding
+node
+selection
+criteria
+Select
+node, has
+the
+shortest
+geographi
+c distance
+Select node,
+meets with
+packet delay
+requirement
+s
+Select node
+set, meets
+with
+packet’s
+speed level
+Select the
+most
+energyefficient
+node,
+meets the
+packet’s
+required
+velocity.
+Select node
+set, meets
+with the delay
+requirements
+and remaining
+power
+Packet is
+broadcasted to
+nodes. Nodes that
+have the higher
+weight value that
+packet’s value
+rebroadcast.
+Due to the value of
+the links
+requirements
+(CED)
+9.
+Real-time
+achiving
+methodolog
+y
+Prioritize
+due to
+velocity of
+packets
+Select node,
+has the min
+delay
+parameter
+Multiple
+packet
+delivery
+approach
+Via
+Dynamic
+velocity
+assignment
+policy
+Select
+appropriate
+node due to
+end-to-end
+delay with the
+best PRR
+value and
+remaining
+power
+Via packet
+classification due to
+QoS metrics
+Via constructed
+Equivalent Delay
+Concept
+10.
+Energy
+Consumptio
+n Reducing
+Strategy
+N.M.
+Via stateless
+nondeterministi
+c geographic
+forwarding
+N.M.
+Adapts
+variable
+transmissio
+n power.
+Adapting
+transceiver
+states
+Via threshold field
+and nodes don’t
+consume energy to
+discover its
+neighbors
+Reduced route
+discovery process.
+11.
+Location
+Awareness
+Strategy
+Via GPS
+or other
+location
+services
+Via beacon
+packets
+Via GPS or
+other
+location
+services
+Via GPS or
+other
+location
+services
+Via predetermined
+neighbor
+nodes
+Via GPS or other
+location services
+N.M.
+N.M. : This feature is not mentioned in protocol
+Table 2. Comparison of Delay-Constraint Routing Protocols in WSNs (continued).
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+75
+In (Krishnamachari et al., 2002) two methods of data aggregation are defined: optimal
+aggregation and suboptimal aggregation. In optimal aggregation, all the sources send a
+single packet to the same receiver through an aggregation tree. In the suboptimal
+aggregation, sources send packets to different destinations which are determined by
+distance or greedy approaches.
+The design of data aggregation schema affects delay parameters. For example, if sensor
+nodes whose packets will be aggregated are in different distances to the sink node, the
+receiving times of packets to the sink node may vary. In Fig. 3, A is the aggregator node. If E
+and B transmit simultaneously, the arriving times of E’s packet and B’s packet will be
+different. It is to note that the aggregation process in an aggregator node increases delay
+(Krishnamachari et al., 2002).
+According to these considerations, trade-off between delay and energy consumption
+become an important issue while designing an aggregation schema. Also, the delay
+tolerance of the application is an important factor, affects the optimality of the data
+aggregation method (Zhu et al., 2005). So delay boundaries must be determined for
+achieving maximum energy efficient structure (Zhu et al., 2005).
+There exists such data aggregation methods, focus on energy efficiency, network lifetime
+and data accuracy in literature. In the following subsection we present the basic
+functionality of the delay constraint data aggregation algorithms due to their introduced
+features.
+Fig. 3. Distance and delay interaction (Krishnamachari et al., 2002)
+5.2 Delay constraint data aggregation algorithms
+In literature, a number of data aggregation methods are proposed which address latency,
+reliability and energy consumption issues. In this section we mention data aggregation
+methods whose features meet real time requirements while considering other issues.
+We start with Upadhyayula et al’s (2003) study which proposes a CDMA/TDMA based
+algorithm that constructs a tree and schedules its nodes for collision-free transmission. The
+aim of the proposed study is to establish a network which requires fast and reliable data
+aggregation by considering energy efficiency.
+In the proposed study the increase of parallel data transmissions reduce the latency. Hence
+required delay boundaries are achieved via constructed balanced tree.
+www.intechopen.com
+Data Acquisition
+76
+Yu et al. (2006) proposed a delay-constraint data aggregation schema which addresses
+packet scheduling in a general tree structure while considering a real time latency
+constraint.
+Yu et al. (2006) indicate that “the transmission energy does not monotonically decrease as
+the transmission time increases – the transmission energy may increase when the
+transmission time exceeds some threshold value” Also a model is introduced which
+describes the tradeoff between energy and latency. The energy-latency trade-off function
+w(?) is described as follows (Yu et al., 2006):
+( ) [ (2 1) ]
+s
+w? = C · ? ·R - + F ·? · R (2)
+Also the energy-latency function curve for long range and short range communication is
+figured as follows:
+Fig. 4. Energy-latency function curve (Yu et al., 2006)
+Cheng et al. (2006) propose a heuristic algorithm for real-time data aggregation. The authors
+consider two constraints such as node degree bounded, where the maximum node degree
+shall not exceed a bound; and tree height bounded, where the tree height shall not exceed a
+bound. In the proposed study it is stated that the maximum node degree of the Minimum
+Spanning Tree in the plane is six which can be reduced to five. Also Cheng et al., (2006)
+propose three heuristic algorithms to minimize total energy cost under the latency
+constraint. These algorithms are node first heuristic, tree first heuristic and hop bounded
+heuristic. More details about these algorithms are stated in Cheng et al. (2006).
+Akkaya et al. (2005) propose an efficient aggregation method for delay-constrained data.
+The proposed study investigates the problem of efficient in-network data aggregation of
+delay-constrained traffic in wireless sensor networks. Authors consider both real time and
+non-real time data while designing the proposed method. Real-time data are generated and
+relayed to the gateway in response to delay-sensitive queries.
+There is a real time queue at each relay node for the incoming packets of these multiple
+flows which is described in Fig.5 (Akkaya et al., 2005). The purpose of having a different
+queue is to enhance storage capacity of a sensor node and to generate real time flows
+depending on the number of active real time source sensors.
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+77
+Fig. 5. Queuing model on sensors (Akkaya & Younis, 2004)
+We have compared the delay-constraint data aggregation methods, stated above according
+to tree construction and energy-latency trade-off approaches.
+A comparasion of these techniques are depicted in Table 3.
+Data Gathering Tree
+Construction
+How manage energy-latency trade-off
+(Upadhyayula
+et al., 2003)
+Propose a CDMA/TDMA
+based algorithm which adds
+new nodes to the least weight
+branch.
+Constructing a balanced tree.
+Establishing parent-child relationship
+with other nodes.
+(Yu et al., 2006) -
+Rate adaptation techniques and nonmonotonic
+energy model.
+(Cheng et al.,
+2006)
+Construct a degree bounded
+and height bounded tree via
+proposed algorithms
+Use in order to obtain a Establish a
+spanning tree by heuristic algorithms.
+In the tree all nodes are no more than H
+hops away from the root.
+(Akkaya et al.,
+2005)
+It uses the Shortest Path Tree
+heuristic in order to build an
+initial aggregation tree.
+A Weighted Fair Queuing based
+mechanism for packet scheduling is
+employed at each node.
+Table 3. Real time latency data aggregation methodology
+6. Real-time WSN applications
+Applying the developed RT WSN methods over real-world applications shows their quality,
+applicability, and good or bad sides. Also, discussing such applications enables people to
+understand the structure of the methods more clearly. We examine design issues of Real
+Time WSN first, and then present some of the latest RT-WSN applications in industrial and
+academic field. In previous studies, researchers have classified WSN applications according
+to usage areas such as medical, military or community-related but it will be more useful to
+classify them according to their functionalities. We group applications as following:
+• Surveillance applications
+• Status monitoring
+• Localization
+www.intechopen.com
+Data Acquisition
+78
+• Motion monitoring
+Design issues differ for each of these areas; however, real time parameters are the key issues
+for each group of applications. Real time requirements must be maintained while providing
+other requirements such as energy consumption and accuracy. Providing real time
+guarantee is conducted by using some predetermined deadline times, being probabilistic or
+deterministic. Deadline times must be short enough that the reaction taken by the system
+will be efficient. In most applications we examined, deadline times are divided into
+subdeadlines for each subprocess. We make a general list of subprocesses having
+subdeadlines:
+• Initial Activation
+• Sensing
+• Wake-up
+• Media Access
+• Transmission
+• Routing
+• Aggregation
+• Base Process
+Most of these subprocesses exist in large scale networks, but small scale networks may not
+have all of them.
+In these applications sensors may be mobile or fixed, and make a wireless communication
+with each other via single-hop or multi-hop. Sensors close to each other form a group, where
+each group communicates with other groups or base station by its cluster head. The base
+station is a device which coordinates the groups, compiles the data sent from them, and it
+has more enhanced resources compared to the nodes. The communication between the base
+station and cluster heads is generally single-hop, however in some applications it may be
+multi-hop. The base station relays the meaningful data it gathered to a main server or an
+end user via some media such as wired, satellite, 802.11 WLAN links.
+There are numerous real time applications using WSNs. In this section, in order to support
+the real time issues stated previously, we limit our application examples in two. One sample
+application is a large scale network and the other is relatively small scale one that are both
+examples of latest Real-Time WSNs.
+6.1 Sample application: Vigilnet - real time target tracking with WSN
+The developed application in (He et al., 2006) detects fast moving targets in real time while
+considering energy consumption and accuracy. The system design is implemented due to
+the pre-determined latency boundaries. It is stated that for environment surveillance the rate
+of event occurrence is low, so the sensor nodes wait in idle state most of their lifetime. The
+sentry nodes wake up other nodes in the presence of critical events. If a target enters the
+area nodes in idle state are waken up and start to monitor and sample. All the sensors
+transit their data to a group leader which is responsible for aggregation, periodically. After
+the aggregation process group leaders report the event to the nearest base. It is to note that
+the communications between group members and group leader is one-hop, so the
+capabilities of group members are equal. After receiving event information to the base
+station, data is correlated by logical methods. The authors state some challenges while
+designing such a network. These design challenges are:
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+79
+- Selection of sentry nodes and determining its duty cycle according to probability of event
+occurrence. This issue affects the coverage ratio of the whole area.
+- Minimizing the actuation delay. The sufficient timeliness must be achieved in order to
+detect fast targets.
+- Designing fast detection algorithms. It is to note that detection is a discrete event. The total
+data in these events must be met with a threshold value in order to decide an
+occurrence as an event. If detection delay is reduced, the detection confidence will
+increase simultaneously.
+- Designing effective wake-up services. Nodes in 1% are awake and 99% are in idle state. If
+any transmission is received from sentry nodes in this tiny wake-up period, non-sentry
+nodes activate and start to monitor. If the tiny wake-up periods become longer, the
+activation time of node becomes minimal but energy consumption is increased.
+- Determining the degree of aggregation (DOA). As mentioned before, more aggregation
+process increases the level of accuracy but introduces additional energy consumption.
+- Classification of information: In order to achieve a meaningful data, it is necessary to
+collect these data from many sources. For example, to determine a car's speed, the
+number of sources reporting must be at least 3. However collecting information from
+many sources causes some delay.
+As a summary, (He et al., 2006) presents a complex real time sensing network design, where
+timeliness is guaranteed by sub-deadlines. This can be considered as a good example that
+figures out the trade-offs in design processes.
+6.2 Sample application: real-time monitoring of hurricane winds with WSN
+This application proposed in (Otero et al., 2009) is deployed in relatively medium scale. It
+remotely monitors the effects of hurricane winds on man-made structures like house or a
+factory (Otero et al., 2009) using wireless sensor network. The system architecture is
+illustrated in Fig. 6.
+Fig. 6. System Architecture (Otero et al., 2009)
+www.intechopen.com
+Data Acquisition
+80
+In (Otero et al., 2009), the real time requirements are not mentioned in numerical limits like
+in (He et al., 2006), but stated as 'near-real time'. In order to increase the communication
+performance between monitored house and remote laptop, the sampling node and
+transmission efficiency are considered as (Otero et al., 2009):
+- Sampling rate must be at least 10 samples/second for pressure measurements.
+- Nodes must transmit at least 5 MB of collected data to the remote site in every 5
+minutes interval.
+As mentioned above a time driven reporting schema is used. Basically system works as
+follows:
+Data, collected by sensor nodes, are transmitted to a base station. This transmission is hold
+in one-hop and all the sensors have similar capabilities. Also the transmission of remote
+sensor nodes is managed by base station. A scheduling algorithm is used to assign internal
+transmission slots to remote sensor nodes (Otero et al., 2009). Nodes can only transmit their
+data in their active slots.
+The key design issues stated in (Otero et al., 2009) are:
+- Determining appropriate timing mechanisms between sensor nodes.
+- Determining number of sensor nodes. It is to note that the density of nodes affects the
+timing problem.
+- Developing or selecting appropriate compression algorithms. In this application, data is
+zipped rather than aggregated.
+As a conclusion, this application uses a single-hop transmission, where due to the small
+deployment area and less number of nodes, zipping is used instead of aggregation in order
+to establish a simple architecture.
+7. Conclusion
+Data required for applications can be provided in several ways and with different methods.
+These methods constitute the data acquisition phase of these applications. Real-time data
+acquisition differs from usual data acquisition due to goals behind it and applied provision
+methods. While the usual (non-real time) data is used to make strategic level decisions, realtime
+data supports to make tactical decisions. Consumer of the real-time data, hence, should
+be supplied in a timely manner to fulfill consumer requirements. Time interval for real-time
+may change with respect to application needs either in terms of microseconds, milliseconds,
+seconds, or minutes. It should be fast enough to preserve the essential information
+associated with the event. Real time data is then processed immediately in order to make a
+decision or to make a reaction.
+In this chapter, we overview real-time data acquisition in Wireless Sensor Networks. We
+present the approaches proposed in the literature and their primary positive and negative
+aspects. As described in the chapter, real-time data acquisition involves operations on
+multiple layers in the communication architecture. It becomes a complex task to manage in
+such a wireless communication network. Constraints and features peculiar to sensor
+networks harden the problem. We underline the key points and aspects in such a multitasking
+environment and present related studies in the literature.
+While the medium access is mandatory issue that must be solved locally in real-time, endto-
+end communication requirements drive the limits and shape the approaches to become
+efficient and applicable in WSN. We present the performance issues and factoring
+parameters for real-time data acquisition in WSN. Of the approaches that aim to solve one
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+81
+communication task, e.g. medium access or routing, we also present comparisons of them.
+These comparisons provide a snapshot view of the protocols and derive conclusions on how
+new approaches should be. Of the routing protocols, Stateless Weighted Routing (SWR) is
+one key protocol that aims to solve multiple objectives and problem in WSN. With respect to
+other protocols, SWR is the easiest and the simplest one to implement. It has many
+advantages and is superlative compared to other similar protocols.
+While aggregation approaches are needed to reduce communication overhead, to provide
+efficient bandwidth usage, and to provide higher quality data, these approaches introduce
+delay. Moreover, aggregation is a complex task to be handled in identical tiny sensor nodes.
+Aggregation at more powerful nodes (with additional ability and higher resources) is more
+attractive solution.
+There are applications that use real-time data aggregation via Wireless Sensor Networks.
+Of these, we present two and give design strategies of them. By increased demand on
+sensor applications, applications that use real-time data aggregation via WSN will increase
+in near future.
+8. References
+Akkaya K. and M. Younis, (2004) "Energy-aware routing of time-constrained traffic in
+wireless sensor networks," in the International Journal of Communication Systems,
+Special Issue on Service Differentiation and QoS in Ad Hoc Networks, 2004
+Akkaya K., M. Younis, and M. Youssef, (2005) “Efficient aggregation for delay-constrained
+data in wireless sensor networks”, The Proceedings of Internet Compatible QoS in Ad
+Hoc Wireless Networks, 2005.
+Akyildiz I. F., W. Su , Y. Sankarasubramaniam , E. Cayirci, (2002) “Wireless sensor
+networks: a survey”, Computer Networks: The International Journal of Computer and
+Telecommunications Networking, v.38 n.4, p.393-422, 15 March 2002
+Ali A., LA Latiff, MA Sarijari, N. Fisal,” (2008) Real- time Routing in Wireless Sensor
+Networks”, The 28th International Conference on Distributed Computing Systems
+Workshops, 2008, pp 114- 119.
+Al-Karaki JN, AE Kamal, (2004) “Routing techniques in wireless sensor networks: a survey”,
+IEEE Wireless Communications, 2008
+Annamalai V., S. K. Gupta and L. Schwiebert. (2003) On Tree-Based Convergecasting in
+Wireless Sensor Networks. IEEE Wireless Communications and Networking Conference
+2003, New Orleans.
+Bacco, G.D., T. Melodia and F. Cuomo, (2004) “A MAC protocol for delay-bounded
+applications in wireless sensor networks” Proc. Med-Hoc-Net. pp. 208-220.
+Caccamo, M., L.Y. Zhang, L. Sha and G. Buttazzo, (2002) “An implicit prioritized access
+protocol for wireless sensor networks”, Proc. 23rd IEEE RTSS. pp. 39-48.
+Chen M, Leung VCM,Mao S, Yuan Y. (2007) Directional geographical routing for real-time
+video communications in wireless sensor networks. Elsevier Computer
+Communications 2007.
+Cheng H, Q Liu, X Jia (2006) “Heuristic Algorithms for Real-time Data Aggregation in
+Wireless Sensor Networks”, IWCMC’06, July 3–6, 2006, Vancouver, British
+Columbia, Canada.
+www.intechopen.com
+Data Acquisition
+82
+Cheng W, L Yuan, Z Yang, X Du, (2006), “A Real-time Routing Protocol with Constrained
+Equivalent Delay in Sensor Networks”, Proceedings of the 11th IEEE Symposium on
+Computers and Communications (ISCC'06)
+Chenyang Lu , Brian M. Blum , Tarek F. Abdelzaher , John A. Stankovic , Tian He, (2002)
+RAP: A Real-Time Communication Architecture for Large-Scale Wireless Sensor
+Networks, Proceedings of the Eighth IEEE Real-Time and Embedded Technology and
+Applications Symposium (RTAS'02), p.55, September 25-27, 2002
+Chipara O., Z. He, G. Xing, Q. Chen, X. Wang, C. Lu, J. Stankovic, and T. Abdelzaher. (2006)
+Real-time Power Aware Routing in Wireless Sensor Networks. In IWQOS, June
+2006
+Chipcon. CC2420 low power radio transceiver, http://www.chipcon.com.
+Chlamtac I. and S. Kutten. (1987) Tree-based Broadcasting in Multihop Radio Networks.
+IEEE Transactions on Computers Vol. C-36, No. 10, Oct 1987.
+Demirkol I, C Ersoy, F Alagoz, “MAC protocols for wireless sensor networks: a survey”,
+(2006) IEEE Communications Magazine.
+Du H. X. Hu, X. Jia, “Energy Efficient Routing And Scheduling For Real-Time Data
+Aggregation In WSNs”, Computer Communications, vol.29 (2006) 3527–3535
+Felemban E., C.-G. Lee, E. Ekici, R. Boder, and S. Vural, (2005) "Probabilistic QoS Guarantee
+in Reliability and Timeliness Domains in Wireless Sensor Networks," in Proceedings
+of IEEE INFOCOM 2005, Miami, FL, USA.
+Ergen, S.C. and P. Varaiya (2006). PEDAMACS: power efficient and delay aware medium
+access protocol for sensor networks. IEEE Trans. Mobile Comput. 5(7), 920-930.
+Francomme, J., G. Mercier and T. Val (2006).A simple method for guaranteed deadline of
+periodic messages in 802.15.4 cluster cells for control automation applications. In:
+Proc.IEEE ETFA. pp. 270-277.
+He T., J. Stankovic, C. Lu, T. Abdelzaher, (2003) SPEED: A real-time routing protocol for
+sensor networks, in: Proc. IEEE Int. Conf. on Distributed Computing Systems (ICDCS),
+Rhode Island, USA, May 2003, pp. 46–55.
+He T., P. A. Vicaire, T. Yan, L. Luo, L. Gu, G. Zhou, R. Stoleru, Q. Cao, J. A. Stankovic, and T.
+Abdelzaher, (2006) “Achieving real-time target tracking using wireless sensor
+networks.” in RTAS’06.
+He, T., L. Gu, L. Luo, T. Yan, J. Stankovic, T. Abdelzaher and S. Son (2006b). An overview of
+data aggregation architecture for real-time tracking with sensor networks. In: Proc.
+IEEE RTAS. pp. 55-66.
+Heinzelman W., A. Chandrakasan, and H. Balakrishnan, (2000), “Energy -Efficient
+Communication Protocol for Wireless Microsensor Networks,” In Proceedings of the
+Hawaii Conference on System Sciences, Jan. 2000.
+Heinzelman W., A. Chandrakasan, and H. Balakrishnan, (2000), Energy-Efficient
+Communication Protocol for Wireless Sensor Networks, Proceeding of the Hawaii
+International Conference System Sciences, Hawaii, USA, January 2000.
+Hu Y, N Yu, X Jia, (2006) “Energy efficient real-time data aggregation in wireless sensor
+networks ” IWCMC’06, July 3–6, 2006, Vancouver, British Columbia, Canada.
+IEEE Std 802.15.4 (2006). Part 15.4: Wireless medium access (MAC) and physical layer (PHY)
+specifications for low-rate wireless personal area networks (WPANs). IEEE-SA.
+www.intechopen.com
+Real Time Data Acquisition in Wireless Sensor Networks
+83
+Jamieson K., H. Balakrishnan, and Y. C. Tay, (2003) “Sift: A MAC Protocol for Event-Driven
+Wireless Sensor Networks,” MIT Laboratory for Computer Science, Tech. Rep. 894,
+May 2003
+Kim T.H. and S. Choi (2006). Priority-based delay mitigation for event-monitoring IEEE
+802.15.4 LR-WPANs. IEEE Commun. Letters 10(3), 213-215.
+Koubaa A., M. Alves, B. Nefzi and Y. Q. Song (2006). Improving the IEEE 802.15.4 slotted
+CSMA/CA MAC for time-critical events in wireless sensor networks. In: Proc.
+Workshop Real-Time Networks. pp. 270-277.
+Krishnamachari L, D Estrin, S Wicker, (2002), “Impact of Data Aggregation in Wireless
+Sensor Networks”, Distributed Computing Systems Workshops, 2002
+Langendoen K, Medium access control in wireless sensor networks. In H. Wu and Y. Pan,
+editors, (2007) Medium Access Control in Wireless Networks, Volume II: Practice and
+Standards. Nova Science Publishers, Inc.
+Li, Y.J.; Chen, C.S.; Song, Y.-Q.; Wang, Z. (2007) Real-time QoS support in wireless sensor
+networks: a survey. In Proc of 7th IFAC Int Conf on Fieldbuses & Networks in Industrial
+& Embedded Systems (FeT'07), Toulouse, France.
+Lin P., C. Qiao, and X. Wang, (2004) “Medium access control with a dynamic duty cycle for
+sensor networks”, IEEE Wireless Communications and Networking Conference,
+Volume: 3, Pages: 1534 - 1539, 21-25 March 2004.
+Lu C., G. Xing, O. Chipara, C.-L. Fok, and S. Bhattacharya, (2005) “A spatiotemporal query
+service for mobile users in sensor networks,” in ICDCS ’05.
+Lu C., B.M. Blum, T.F. Abdelzaher, J.A. Stankovic and T. He (2002). RAP: a real-time
+communication architecture for large-scale wireless sensor networks. In: Proc. IEEE
+RTAS. pp. 55-66.
+Lu G., B. Krishnamachari and C.S. Raghavendra, (2004) “An adaptive energy-efficient and
+low-latency MAC for data gathering in wireless sensor networks” Proc. Int. Parallel
+Distrib. Process. Symp. pp. 224-231.
+Monaco U., et.al. “Understanding Optimal Data Gathering In the Energy and Latency
+Domains of A Wireless Sensor Network”, Computer Networks, vol. 50 (2006) 3564–
+3584
+Otero Carlos E., Antonio Velazquez, Ivica Kostanic, Chelakara Subramanian, Jean-Paul
+Pinelli,(2009) "Real-Time Monitoring of Hurricane Winds using Wireless and
+Sensor Technology", Journ. of Comp
+Raghunathan V., C. Schurgers, S. Park, and M. B. Srivastava, (2002) “Energyaware wireless
+microsensor networks,” IEEE Signal Processing Mag., vol. 19, no. 2, pp. 40–50, Mar.
+2002.
+Rajagopalan R, PK Varshney, (2006) “Data aggregation techniques in sensor networks: A
+survey”, IEEE Communications Surveys & Tutorials, 2006
+Rhee I., A. Warrier, M. Aia and J. Min, (2005) “Z-MAC: a hybrid MAC for wireless sensor
+networks”. Proc. ACM Sensys. pp. 90-101.
+Ruzzelli A.G., G.M.P. O'Hare, M.J. O'Grady and R. Tynan (2006). MERLIN: a synergetic
+integration of MAC and routing protocol for distributed sensor networks. In: Proc.
+IEEE SECON. pp. 266-275.
+Soyturk M., D.T. Altilar, (2008) Reliable Real-Time Data Acquisition for Rapidly Deployable
+Mission-Critical Wireless Sensor Networks, IEEE INFOCOM 2008.
+www.intechopen.com
+Data Acquisition
+84
+Soyturk M., T.Altilar. (2006) “Source-Initiated Geographical Data Flow for Wireless Ad Hoc
+and Sensor Networks”, IEEE WAMICON’06
+Upadhyayula S, V Annamalai, SKS Gupta (2003) “A low-latency and energy-efficient
+algorithm for convergecast in wireless sensor networks ”- IEEE GLOBECOM 2003
+Watteyne T., I. Auge-Blum and S. Ubeda, (2006) “Dual-mode real-time MAC protocol for
+wireless sensor networks: a validation/simulation approach”, Proc. InterSen.
+Wu J., P. Havinga, S. Dulman and T. Nieberg (2004). Eyes source routing protocol for
+wireless sensor networks. In: Proc. EWSN.
+Ye Wei, John Heidemann, Deborah Estrin (2001) “An Energy-Efficient MAC protocol for
+Wireless Sensor Networks”, USC/ISITECHNICAL REPORT ISI-TR-543,
+SEPTEMBER 2001.
+Yu Y, VK Prasanna, B Krishnamachari, (2006), “Energy minimization for real-time data
+gathering in wireless sensor networks” IEEE Transactions on Wireless
+Communications, Vol. 5, No. 11, November 2006
+Yuan L., W. Cheng, X. Du. “An Energy-Efficient Real-Time Routing Protocol For Sensor
+Networks”, Computer Communications, vol.30 (2007) 2274–2283
+Zhu Y., K. Sundaresan, and R. Sivakumar.(2005) Practical limits on achievable energy
+improvements and useable delay tolerance in correlation aware data gathering in
+wireless sensor networks. In Proc. of SECON, 2005
+www.intechopen.com
+Data Acquisition
+Edited by Michele Vadursi
+ISBN 978-953-307-193-0
+Hard cover, 344 pages
+Publisher Sciyo
+Published online 28, September, 2010
+Published in print edition September, 2010
+InTech Europe
+University Campus STeP Ri
+Slavka Krautzeka 83/A
+51000 Rijeka, Croatia
+Phone: +385 (51) 770 447
+Fax: +385 (51) 686 166
+www.intechopen.com
+InTech China
+Unit 405, Office Block, Hotel Equatorial Shanghai
+No.65, Yan An Road (West), Shanghai, 200040, China
+Phone: +86-21-62489820
+Fax: +86-21-62489821
+The book is intended to be a collection of contributions providing a birdâ€™s eye view of some relevant
+multidisciplinary applications of data acquisition. While assuming that the reader is familiar with the basics of
+sampling theory and analog-to-digital conversion, the attention is focused on applied research and industrial
+applications of data acquisition. Even in the few cases when theoretical issues are investigated, the goal is
+making the theory comprehensible to a wide, application- oriented, audience.
+How to reference
+In order to correctly reference this scholarly work, feel free to copy and paste the following:
+Mujdat Soyturk, Halil Cicibas and Omer Unal (2010). Real-Time Data Acquisition in Wireless Sensor Networks,
+Data Acquisition, Michele Vadursi (Ed.), ISBN: 978-953-307-193-0, InTech, Available from:
+http://www.intechopen.com/books/data-acquisition/real-time-data-acquisition-in-wireless-sensor-networks

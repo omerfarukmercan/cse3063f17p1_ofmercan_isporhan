@@ -1,0 +1,842 @@
+ 
+ 
+Gezgin Ad Hoc 
+Alar ve Yol Atama 
+ 
+ 
+ 
+ 
+Mobile Ad Hoc 
+Networks and 
+Routing 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ÖZGEÇM 
+ 
+Müjdat Soytürk 
+ 
+1994 yilinda Deniz Harp Okulu’ndan mezun olduktan 
+sonra 1999 yilinda Boaziçi Üniversitesinde açilan 
+Otomatik Bilgi lem Subay Temel Kursunu bitirdi. 
+.T.Ü. Bilgisayar Mühendislii  bölümünde 1999 yilinda 
+baladii Yüksek Lisans eitimine halen devam 
+etmektedir. lgi alani telsiz bilgisayar alaridir.  
+ 
+Emre Harmanci 
+ 
+1970 yilinda Paris Üniversitesinde doktora derecesini 
+aldi. .T.Ü. ‘nde 1975 yilinda doçent, 1982 yilinda 
+profesör oldu. .T.Ü.’nde çeitli idari görevlerde 
+bulundu. Halen Bilgisayar Mühendislii Bölümü 
+Bilgisayar Bilimleri Ana Bilim Dali Bakanidir. 
+Sanayide danimanliklari vardir. Birçok meslek örgütü 
+üyesidir. Uluslararasi dergilerde ve uluslararasi 
+konferans kitaplarinda yayinlanmi çok sayida yayini 
+vardir. lgi alani bilgisayar alari ve bilgisayar 
+mimarisidir. 
+ 
+Erdal Çayirci 
+ 
+1986 yilinda Kara Harp Okulu’ndan, 1989 yilinda Royal 
+Military Academy Sandhurst’den mezun oldu. 1993 
+yilinda Otomatik Bilgi lem Subay Temel Kursunu 
+bitirdikten sonra Orta Dou Teknik Üniversitesi 
+Bilgisayar Mühendislii bölümünde balami olduu 
+yüksek lisans eitimini 1995 yilinda tamamladi. 2000 
+yilinda Boaziçi Üniversitesi Bilgisayar Mühendislii 
+bölümünde doktora derecesini aldi. lgi alanlari telsiz 
+bilgisayar alari, kiisel iletiim hizmetleri (PCS) ve 
+muharebe modellemedir. 
+ 
+ 
+ 
+ÖZET 
+ 
+Gezgin ad hoc alar, sabit bir alt yapiyi gerektirmeyen, 
+ortam koullarina hizla ve ön hazirliksiz kendi kendini 
+uyarlayarak hizmet ettii uç birimler arasinda iletiimi 
+salayan dinamik varliklardir. Bu özellikleri ile, 
+bildirimizde açiklanan problemlere çözüm üreten 
+teknolojiler gelitirildikçe, biliim pazarinda daha çok 
+uygulama alani bulacaktir. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ABSTRACT 
+ 
+Ad hoc mobile networks are infrastructureless networks 
+that can organize themselves according to dynamic 
+environment changes to establish the communications 
+between the end nodes without any preplanning. 
+Because of these characteristics, new ad hoc 
+applications are implemented eveyday as the 
+technologies, which overcome ad hoc related problems 
+that are discussed in this paper, evolve. 
+ 
+ 
+Gezgin Ad Hoc Alar ve Yol Atama 
+ 
+1. GR 
+Gezgin  kullanicilara  çoul  ortam  hizmetlerini  sunmayi 
+hedefleyen  gezgin  a  teknolojileri,  1970’lerde  ilk  ortaya 
+çikilarindan itibaren, biliim alaninda giderek daha fazla ilgi 
+çeken  bir  konu  olmutur  [23].  Telsiz  eriimden  yararlanan 
+gezgin  alar  genellikle  iki  sinifa  ayrilarak  incelenirler:  sabit 
+bir  altyapiyi  gerektiren  hücresel  alar  ve  sabit  altyapiya 
+ihtiyaç duymayan ad hoc alar. 
+Hücresel  alarda,  gezgin uç düümleri sabit altyapiya ait bir 
+eriim  noktasina  tek  sekmeli  (single-hop)  telsiz  ba  (link) 
+yoluyla eriirler [4]. Hiçbir sabit altyapinin olmadii, çok az 
+sabit  altyapinin  var  olduu,  ya  da  mevcut bir sabit altyapiya 
+eriimin  güçlükle  yapildii  bölgelerde,  gezgin  kullanicilara, 
+çoul  ortam  iletiim  hizmetleri  ad  hoc  alar  sayesinde 
+sunulabilir [1-5,  9, 13, 14, 17-20]. 
+Ad  hoc  alar  kendiliinden  yapilanirlar,  geni  bir  alana 
+kolayca yayilirlar ve sabit bir altyapi kullanmazlar. Her yönde 
+hareket  edebilen  ve  kisitli  imkanlara  karin  iletiimi 
+sürdürmek  için  sürekli  ibirlii  yapan  telsiz  düümlerden 
+oluurlar. Ad hoc alardaki düümler sabit olabildikleri gibi, 
+çok  yüksek  hizla  da  hareket  edebilirler  [14].  Bu  yeni  a 
+mimarisinin  asil  amaci,  sabit  altyapili  gezgin  alara  göre, 
+kullanicilara daha fazla esneklik, hareketlilik salamak ve a 
+yönetimini kolaylatirmaktir. Bu özellikler, hücresel alardaki 
+bilinen  fiziksel  altyapi  yerine,  ad  hoc  düümler  arasinda 
+dinamik  iletiim  omurgalari  kurularak  salanir.  A, 
+düümleriyle  birlikte  hareket  eder.  Düümler  nereye  giderse 
+a da oraya gittii için, bir ad hoc ain kendisi de gezgindir. 
+Uç  düümler  (end  nodes)  gerektiinde,  baz  istasyonu  ve 
+yönlendirici  görevlerini  de  üstlenirler.  Bu  nedenlerle,  bir  ad 
+hoc a, uyarlanabilir bir yönetim algoritmasina ihtiyaç duyan 
+deiken yapili bir varliktir. 
+Ad  hoc  ai  dier  gezgin  mimarilerden  ayiran  temel  özellik, 
+düüm  gezginliinin,  a  topolojisinin  sürekli  olarak  yeniden 
+yapilanmasina  neden  olmasidir.  Bir  gezgin  ad  hoc  a 
+ortaminda gönderim (transmission) menzili, teknik kisitlar ve 
+çevresel  etkiler  nedeniyle  deiken  ve  sinirlidir.  Bu  teknik 
+kisitlar ve etkiler; gönderim gücü, alici duyarlilii, gürültü ve 
+dier  kanallarin  etkisi,  yol-kaybi  (path-loss),  gölge  yitimi 
+(shadow  fading),  Raleigh  yitimi  (Raleigh  fading),  doppler 
+kaymasi eklinde siralanir. 
+Bir ad hoc ain tasarimi için gerekenler, sabit altyapili alara 
+göre  çok  farklidir.  Düüm  gezginlii,  telsiz  ortamda 
+gönderimden  kaynaklanan  problemler  ve  güç  tüketimi 
+karilailan  en  büyük  zorluklardir.  A  ölçeklenebilirlii 
+(scalability) de a tasariminda dier bir önemli sorundur.  
+Ad hoc alarla ilgili temel özellikler u ekilde siralanabilir: 
+-  Ain  denetimi,  yönetimi  ve  yol  atama  için  bir  merkezi 
+otorite yoktur.  
+-  Tüm a elemanlari bulunduklari ortamda yönlerini sürekli 
+deitirerek, hizla  hareket edebilirler. 
+-  Bütün iletiim (kullanici verisi ve denetim bilgileri) telsiz 
+ortam üzerinden tainir. Hiçbir telli balanti yoktur. 
+-  Telli  ada  kisitli  olmayan  enerji,  bandgenilii,  ilem 
+kapasitesi  ve  bellek  gibi  özkaynaklar,  ad  hoc  alarda 
+kisitlidir ve özenle tüketilmelidir. 
+-  Gezgin  düümlerin  her  biri,  gereinde  yol atama gibi a 
+fonksiyonlarini da yerine getirirler. 
+Ad  hoc  alar,  bazilari  aaida  siralanmi  olan  birçok  farkli 
+amaç için kullanilabilirler  [1, 7, 8, 18]: 
+-  Kurtarma  görevlerinde:  Sabit  altyapili  alarin  kapsama 
+alanlarinin diinda (denizde, dada), 
+-  Seferberlik gerektiren durumlarda: Sel, deprem gibi doal 
+afetler  ve  sava  nedeniyle  mevcut  iletiim  altyapisinin 
+çalimadii kriz zamanlarinda, 
+-  Yasal  zorunluklar  nedeniyle:  Yasal  sebeplerle  sabit  bir 
+altyapinin kurulmasinin mümkün olmadii yerlerde, 
+-  Askeri (taktik) iletiimde: Harekat alanlarinda, daha hizli 
+kurulabilen bir iletiim altyapisi salamak için, 
+-  Ticari  amaçli  olarak:  Sergilerde,  konferanslarda  veya 
+sati sunumlarinda iletiimi salamak için, 
+-  Hareketli  platformlara  takili,  akilli  algilayicilari 
+haberletirmek için. 
+Bu  bildiride,  gezgin  ad  hoc  a  teknolojileri  incelenecektir. 
+kinci  bölümde  gezgin  ad  hoc  alarinin  temel  sorunlari 
+açiklandiktan  sonra,  üçüncü  bölümde  ad  hoc  yol  atama 
+teknikleri,  dördüncü  bölümde  öbek-yapili  (cluster-based)  yol 
+atama teknii ele alinacaktir. Son bölüm sonuçlara ayrilmitir. 
+2. AD HOC ALARDA KARILAILAN 
+PROBLEMLER 
+Ad  hoc  alardan  beklenen  ve  yukarida  bahsedilen  özellikler 
+nedeniyle,  sistem  tasarimi  her  aamada  zorlamaktadir. 
+Fiziksel  katman,  MAC  katmani  ve  yol  atama  algoritmasinin 
+tasarim  ve  baarimiyla  ilgili  temel  bir  çeliki  vardir.  Kanal 
+çatimasi  (interference),  güç  ve  yol  atama  arasinda  etkili  bir 
+denge  kurma  problemi,  sabit  alt  yapili  sistemlere  göre  daha 
+farkli  bir  ekilde  ad  hoc  alarin  mimari  katmanlarini  etkiler. 
+Bildiride,  fiziksel  ve  MAC  katmani ile yol atama, adresleme 
+ve  hareket  yönetimini  içeren  a  katmaninin  tasariminda 
+karilailan  zorluklar  ve  mevcut  sistem  çözümleri  ele 
+alinacaktir.  
+Fiziksel Katman 
+Radyo  alici-vericileri  fiziksel  katmani  olutururlar.  Telsiz 
+alarda  iyi  bir  a  balilii  (connectivity),  belirlenen  radyo 
+alici-vericilerinin  menziline  balidir.  Telsiz  alarda, 
+bandgenilii  ve  güç  çok  kisitli  olduu  için,  gönderim 
+menzilinin  belirlenmesinde,  band  genilii  kullanimi  ve 
+gönderim gücü arasinda bir uzlai yapmak gerekir. 
+Bir  telsiz  ad  hoc  ada,  tüketilen  enerjiyi  azaltmak  için, 
+sinyaller  düük  güçte  gönderilebilir.  Böylece  tüketilen  enerji 
+azaltildii gibi kariim da azalarak sistemin verimi arttirilmi 
+olunur. Fakat bu yaklaimla sinyal menzili düer ve yol-kaybi 
+(path-loss) gibi kanal etkileri artar. Tek sekmeyle (single hop)  
+iletiim  kuran  düümler,  çok  sekmeli    (multi  hop)  yollar 
+üzerinden  iletiim  kurmak  zorunda  kalirlar.  Böylece  veri 
+paketlerini  göndermede  toplamda  daha  fazla  güç  ve 
+bandgenilii  kullanilmi  olur.  Ayni  zamanda  ortalama  yol 
+uzunluunun  artmasi,  ba  hata  (link-failure)  oraninin 
+artmasina neden olur [14]. Bu nedenle balilii (connectivity) 
+salayacak  ve  batarya  gücünü  ve  bandgeniliini  en  uygun 
+ekilde kullanacak bir gönderim menzili (transmission range) 
+belirlenmelidir.  
+Fiziksel katmanda karilailan 3 zorluk vardir. Bu zorluklarin 
+ilki olan telsiz ortam etkileri, ad hoc a sistem tasarimindaki 
+en temel zorluktur. Anten tasarimi, iaret gönderim gücü, alici 
+duyarlilii,  modülasyon  yöntemleri,  iaret  ileme  kullanimi, 
+gönderim  bandgenilii  ve  taiyici  frekansi  gibi  kontrol 
+edebildiimiz etkenler ve fiziksel engellerin varlii ve düüm 
+gezginlii gibi kontrol edemediimiz etkenler, telsiz balarin 
+kalitesine,  bilgi  taima  kapasitesine  ve  iaret  menziline  etki 
+eder.  aret  yayilimini  olumsuz  etkileyen  bu  etkenlerin  her 
+biri,  bir  ad  hoc  düümün  bilgiyi  doru  olarak  gönderip 
+almasinda  etkili  olur.  Buradaki  zorluk,  belirli  bir  menzil 
+içerisinde çaliabilen sistem elemanlarinin tasarimini etkili bir 
+ekilde yapmaktir.  
+Ad hoc a sistem tasarimindaki ikinci büyük fiziksel-katman 
+zorluu  enerji  tüketimi  ve  batarya  ömrü  ile  ilgilidir.  Bu 
+konular dier telsiz sistemlerde de dikkat edilmesi gereken bir 
+tasarim  etkenidir,  fakat  ad  hoc  alarda  sabit  bir  alt  yapi 
+kullanilmadii  için  daha  çok  dikkat  edilmesi  gerekir.  Bu 
+sorunu  çözmek  için  iki  türlü  yaklaim  vardir:  birincisi  daha 
+güçlü batarya üretmek ve ikincisi de mevcut bataryalari daha 
+etkili  kullanmaktir.  Bataryalari  daha  etkili  kullanmak  için 
+protokoller,  kanal  eriimlerini  iyiletirmeli  ve  gereksiz 
+gönderimleri engelleyerek enerji tüketimlerini azaltmalidirlar. 
+Daha  iyi  bir  çözüm  ise,  güç  ekonomisine-dayali  yol  atama 
+yöntemleri gelitirmektir.  
+Fiziksel  katmanda  karilailan  son  zorluk  da  düümlerin 
+gezginliinden  kaynaklanmaktadir.  Sürekli  deien  ortamda  
+fiziksel katman parametreleride deiecektir. Fiziksel katman, 
+parametrelerini  deien  ortama  uyarlamak  için,  düümlerin 
+hareket  ve  yer  bilgilerine  ihtiyaç  duyar.  Bu  hareket  ve  yer 
+bilgilerinin  üst  katman  varliklarina  aktarilirsa,  yol  atama 
+algoritmalarinin daha iyi bir yol bulmasi salanir ve yol atama 
+protokollerinin  etkinlii  artar[4,  14].  Fakat  hareket  ve  yer 
+bilgilerini  salama,  çok  düümlü  olan  ve  bütün  düümleri 
+gezgin olan bir ada zorluklar içerir.  
+MAC Katman  
+Bir ortak gönderim ortamindaki (shared transmission medium) 
+en  temel  sorun,  iletiim  kanalina  eriimin,  adil  ve  etkili  bir 
+ekilde  denetiminin  yapilmasidir.  Ortam-eriim-denetimi 
+(Medium-Access-Control)  bu  ilevi  salar.  Telsiz  alarda 
+bandgeniliinin  çok  kisitli  olmasi  nedeniyle  özenle 
+tüketilmesi gerektiinden, ortama eriimde çok iyi bir çoklu-
+eriim (multiple-access) teknii seçilmelidir.  
+Telsiz  alarda  kullanilan  çoklu  eriim  teknikleri  çatimasiz 
+(conflict-free) ve çatimali (contention-based) olarak iki sinifa 
+ayrilmaktadir.  Çatimasiz    teknikler,  gönderimlerin  baka 
+gönderimlerle  karimayacaini  (interfere)  garanti  eden 
+tekniklerdir.  Çatimasiz  gönderim  tekniinde  kanal, 
+kullanicilara,  sabit  ya  da  dinamik  olarak  tahsis  edilir.  Sabit 
+çatimasiz  tekniklerde,  kanal,  herhangi  bir  çatimaya  neden 
+olmadan  kullanicilara;  zaman  tabanli,  frekans  tabanli  ve  kod 
+(code)  tabanli  tahsis  yöntemlerinden  biri  seçilerek  atanir. 
+Kullanicilar, kendilerine tahsis edilen kaynaklari sisteme iade 
+edinceye kadar baka bir kullanici ile paylamadan kullanirlar. 
+Sabit  çatimasiz  tekniklerin  tersine,  deiken  çatimasiz 
+teknikler  kaynaklari  kullanicilara  ihtiyaç  halinde  geçici  süre 
+ile atar. Böylece kaynaklari sadece ihtiyaci olanlar kullanmi 
+olur. 
+Çatimali  tekniklerde  gönderimlerin  baarisiz  olma  ihtimali 
+vardir. Bu nedenle bu teknikler, çatima olmasi halinde bunu 
+çözümleyecek/düzeltecek  ve  gönderilmek  istenen  verinin 
+baariyla  gönderimini  salayacak  bazi  yöntemler  içerir.  Bu 
+çözümleme  yöntemlerine  göre  çatimali  teknikler,  sabit 
+çatimali teknikler ve deiken çatimali teknikler olarak ikiye 
+ayrilir.  Bir  sabit  çatima  çözümleme  tekniinde  kullanilan 
+yöntemler,  sistemin  dinamikliinden  etkilenmez.  Çatimayi 
+önlemek  için  öncelik  veya  olasiliksal  deerler  kullanir.  
+Deiken  çatima  çözümleme  tekniide,  sistemdeki 
+deiiklikleri takip ederek çatimalari çözümlemeye çaliir. 
+Günümüz  gezgin  iletiim  sistemlerinde  daha  çok  sabit 
+çatimasiz  kanal  ayirma  teknikleri  (Frekans  Bölmeli  Çoklu 
+Eriim - FDMA, Zaman Bölmeli Çoklu Eriim - TDMA, Kod 
+Bölmeli  Çoklu  Eriim  -  CDMA)  ve  kaynak  ayirmaya  dayali 
+(reservation based) deiken çatimasiz kanal atama teknikleri 
+(Paket Ayirmali Çoklu Eriim - PRMA, Deiken-TDMA - D-
+TDMA,  Kaynak  Alimli  Çoklu  Eriim  -  RAMA) 
+kullanilmaktadir  [4].  Sabit  kanal  ayirma  yöntemleri, 
+bandgeniliinin kisitli olmasi nedeniyle gezgin ad hoc alar 
+için uygun deildir. Gezgin ad hoc alar için, bandgeniliini 
+daha  etkin  kullanan  ve  hiz  ve  eriim  gecikmesi  bakimindan 
+hizmet kalitesi (QoS) garantisi salayan dinamik kanal ayirma 
+yöntemleri uygundur [14].  
+Telsiz  alarda,  eriim  ortaminin  ayni  anda  paylailmasi 
+nedeniyle  MAC  katmaninda  kariim  (interference)  olaylari 
+oluur. Birincil kariim ve ikincil kariim olarak siniflandirilan 
+iki  türlü  kariim  vardir.  Birincil  kariim,  ayni  düüme  farkli 
+iki  göndericiden  ayni  anda  veri  gönderilmesiyle  veya  bir 
+düümün  ayni  anda  hem  alma  hem  gönderme  ilemi 
+yapmasiyla  olur.  ki  tip  birincil  kariim  vardir.  Birincil 
+kariimin  ilk  tipini  açiklamak  için,  A  ve  B  eklinde 
+birbirlerinin  gönderim  mesafesinde  olan  iki  düüm  olsun 
+(ekil  A).    Bu  durumda  A  ve  B  ayni  anda  birbirlerine 
+gönderime balarlarsa, o zaman her iki düümünde ayni anda 
+almasi ve göndermesi beklenir.  
+Sakli uç düüm problemi (hidden terminal problem) olarak da 
+bilinen  ikinci  tip  birincil  kariimi,  A,  B  ve  C  eklinde  üç 
+düüm ile açiklayabiliriz (ekil B). B’nin hem A’nin hem de 
+ekil A Birincil kariim -I 
+r i  : eriim menzili yariçapi 
+A 
+r a  r b 
+B 
+ekil B  Birincil kariim – II (sakli uç düüm problemi). 
+r i  : eriim menzili yariçapi 
+A 
+r a  r c 
+C  B 
+C’nin  gönderim  mesafesinde  olduunu,  fakat  A  ve  C’nin 
+birbirlerinin  gönderimlerini  duymadiini  varsayalim.  Bu 
+durumda A ve C, birbirlerine göre sakli uç düümlerdir. Eer 
+A ve C ayni anda B’ye gönderime balarsa, her iki düümde, 
+kendi  gönderimlerini  B’nin  almasini  bekler.  Fakat  B,  ayni 
+anda iki alma ilemi yapamayacaindan B’de çatima oluur. 
+A  ve  C,  bu  çatimayi  önceden  hissedemeyeceinden çatima 
+olduunu anlayana kadar gönderimlerine devam eder.  
+kincil kariim, bir komu düümün gönderdii sinyallerin, o 
+anda bir gönderici ve alici iki düüm arasinda yapilmakta olan 
+iletiimi istemeden karitirmasiyla olur. kincil kariimi, C’nin 
+gönderimlerini  alabilecek  bir  menzilde  fakat  B’yi 
+duyamayacak  bir  mesafede  olan  dördüncü  bir  düüm  D  ile 
+açiklayabiliriz . 
+lk örneimizde (ekil C), A ve C’nin birbirlerinin gönderim 
+mesafesinde  olmadiini  ve  A’nin  B  ile,  C’nin  de  D  ile 
+iletiimde olduunu varsayalim. B, hem A’nin hem de C’nin 
+gönderim mesafesinde olduundan, C, B’ye herhangi bir paket 
+göndermeyecek olmasina ramen A’nin gönderimleriyle B’de 
+kariacaktir. 
+Etki altindaki uç düüm problemi (exposed terminal problem) 
+olarak  bilinen  ikinci  örneimizde  (ekil D), B’nin A’ya veri 
+göndermeye baladiini ve bu gönderim süresinde, C’nin D’ye 
+gönderecek  verisi  olduunu  varsayalim.  C,  B’nin 
+gönderimlerini  duyacak  ve  D’de  hiçbir  çatima  olmayacak 
+olmasina ramen D’ye olan gönderimlerini geciktirecektir. Bu 
+durumda C, B’ye göre etki altindaki uç düümdür.  
+Yol Atama (Routing)  
+Bir ad hoc a, birlikte çalian gezgin düümlerin birleimidir 
+[19]. Bu düümler gönderim menzili, bandgenilii ve güçteki 
+bazi  kisitlamalar  altinda  telsiz  iletiimi  salarlar.  Eten-ee 
+(peer-to-peer)  iletiimler,  özel  yönlendiriciler  kullanilmadan 
+ve tek-sekmeli (single-hop) (daha fazla güç harcamayla sinyal 
+menzilini  büyüterek)  iletiim  ihtiyaci  domadan  çok-sekmeli 
+(multi-hop) olarak yapilir. Uç-noktalar (end-points) arasindaki 
+yollar  (route),  gezgin  düümlerin  ibirliiyle  salanir.  Bütün 
+balar  telsizdir  ve  aradaki  düümler  bulunduu  ortamda 
+rastgele hareket edebilir. Ayni zamanda, (düüm hareketlilii, 
+çevresel  ve  fiziksel  etkenler  nedeniyle)  kullanilan  yollarin 
+bozulan  kisimlari  onarilarak  veya  alternatif  bir  yol  (route) 
+bulunarak iletiimin devami salanmalidir [14].  
+Bu  koullar  altinda,  telsiz  ad  hoc  ada  yol  atama  problemi, 
+verimlilik 1   (efficiency)  ve  yanitlama 2   (responsiveness) 
+arasinda  zor  bir  uzlai  sonrasinda  salanir.  Ad  hoc  alarda 
+sürekli  olan  topoloji  deiiklii  airi  yüke  neden  olur.  Ayni 
+zamanda düüm hareketlilii ve ba kalitesindeki deiiklie 
+göre  de  ai  hizli  bir  ekilde  uyarlamak  gerekir.  Problem  bu 
+ikisi  arasindaki  dengeyi  salamaktir.  Airi  yük, 
+bandgeniliinin  kullanimi,  güç  tüketimi  ve  gezgin 
+düümlerin ilem ihtiyaçlari ile ölçülür. Bu çatian ihtiyaçlari 
+etkili bir ekilde dengeleyen bir strateji oluturmak, yol atama 
+zorluunun temelini oluturur [14, 23]. 
+3. GEZGN AD HOC ALARDA YOL ATAMA 
+Gezgin  alar  için  tasarlanan  ilk  yol  atama  teknikleri,  sabit 
+alarda  kullanilan  yol  atama  tekniklerinin,  gezgin  alara 
+uyarlamalaridir.  
+Sabit  alarda  kullanilan  yol  atama  algoritmalari  bu  ortamlar 
+için  tasarlandiindan,  deiken  ortamlarda  iyi  sonuç  vermez 
+[20]. Ain deikenlii arttikça, yol atamanin getirdii ilem 
+yükü  airi  artar.  Eer  bu  airi  yüklenme  önlenmezse,  a 
+özkaynaklari hizla tükenir veya kullanilmaz hale gelir.  
+Bu nedenlerle, bu tekniklerin yetersiz kalmasiyla, gezgin alar 
+için  yeni  teknikler  önerilmitir.  Bu  teknikleri  açiklamadan 
+önce,  genelde  yol  atama  protokollerini  gözden  geçirmek 
+yararli  olacaktir.  Yol  atama  protokollerini  yapilarina  göre, 
+yatay  (flat  routed)  yol  atama  ve  hiyerarik  yol  atama  olarak 
+ikiye ayrilabilir:  
+Yatay (Flat-Routed) Yol Atama  
+Bir yatay yol atama algoritmasinda, her düüm, adaki dier 
+bütün  düümlere  giden  yol  bilgilerinin  bulunduu  bir  yol 
+atama tablosu tutar.  
+Eer  adaki  düüm  sayisi  az  ise,  tablo  büyüklüü  kabul 
+edilebilir düzeyde kalir, ancak adaki düüm sayisi arttiinda 
+tablolar büyür. Yol atamanin getirdii iletiim yükü ve ilem 
+süresi önemli ölçüde artar. Tablo ilem süresi ve güncelleme, 
+aa  airi  bir  yük  getirir.  Bu  nedenle,  yatay  yol  atama  
+algoritmalari,  büyük  alar  için  kabul  edilebilir  sonuçlar 
+vermez.  
+Yatay  yol  atama    tekniiyle,  gezgin  ad  hoc  alarda  yol 
+atamayi desteklemek için birçok protokol önerilmitir.  
+                                                           
+1  Verimlilik : a özkaynaklarini ekonomik ve etkili kullanma 
+2  Yanitlama : topoloji deiikliklerine hizli ve doru olarak tepki 
+gösterme 
+ekil E Bir yatay  yol atamali ad hoc a. 
+ekil C kincil kariim (örnek-1). 
+r i  : eriim menzili yariçapi 
+A 
+r a  r c 
+C  B  D 
+ekil D kincil kariim (etki altindaki uç düüm problemi) 
+(örnek-2). 
+r i  : eriim menzili yariçapi 
+A 
+r a  r c 
+C  B 
+D 
+Hiyerarik Yol atama 
+Büyük  alarda,  ölçeklenebilir  yöntem  olarak  hiyerarik  yol 
+atama kullanilir. Hiyerarik yol atamanin balica  avantaji, yol 
+atama  tablolarinin  büyüklüünü  dolayisiyla  yol  atamadaki 
+ilem yükünü önemli ölçüde azaltmasidir.  
+Bir  a,  uç  düümler  (end-point)  ve  anahtarlardan  (switch) 
+oluur.  Anahtarlar  (switch)  yol  atama  ilevini  gerçekletirir. 
+Haberleen  varliklar  uç  düümlerdir  ve  gereinde  her  uç 
+düüm, anahtar görevini üstlenerek, komulari için yol atama 
+ilemini gerçekletirir.  
+Hiyerarik  ada  uç  düümler,  protokolün  en  alt  düzeyini 
+olutururlar. Yakin uç düümler bir öbek (cluster) oluturur ve 
+kendilerinden  birini  öbek-bai  (cluster-head)  olarak  seçer. 
+Öbek  balari,  o  öbek  için  anahtar  (switch)  görevini  yürütür. 
+Öbek balari (anahtarlar) bir üst düzeyde öbek oluturarak ve 
+kendi  arasindan  bir  öbek  bai  seçerek  hiyerarik  yapinin  bir 
+üst düzeyini olutururlar (ekil F).  
+Her  düzeydeki  öbein  üyeleri,  sadece  kendi  öbeklerindeki 
+düümlerin  bilgilerini  tutarlar.  Dier  öbeklerdeki  düümlere 
+ulama,  ayni  zamanda  bir  üst  düzeydeki  öbein  bir  elemani 
+olan  öbek-bai  üzerinden  olur.  Böylece  yolatama  tablolari 
+küçülmü ve ada yol bulma ilem yükü azalmi olur. Ancak, 
+bu teknikle seçilen yol her zaman optimal olmayacaktir. 
+Ad Hoc Alar çin Yol Atama Teknikleri 
+Sabit alt yapili alarda kullanilan  yol atama protokolleri, yol 
+atama  bilgilerini  güncel  tutmak  ve  yol  atamada  döngü 
+olumasini önlemek için, düümler arasi bilgi paylaimina ve / 
+veya düüm bilgilerinin global takinlarla (flooding) tüm aa 
+yayilmasina  ihtiyaç  duyar.  Bu  tekniklerin  uygulandii  yol 
+atama  protokolleri,  ain  airi  yüklenmesine  ve  düümlerdeki 
+ilem  zamaninin  artmasina  neden  olur.  Ayrica  bu  teknikler, 
+bandgeniliinin yeterli olduu ve a balarinin sabit olduu 
+ortamlar için çok uygundur.  
+Bu tekniklerin etkinlii ad hoc alarin yol atama ihtiyaçlarini 
+karilamaz.  Ad  hoc  alar  için  verimlilik  (efficiency)  ve 
+yanitlama (responsiveness) özellikleri arasinda daha etkili bir 
+denge kurabilecek yeni yol atama stratejilerine ihtiyaç duyulur 
+[14, 23]. Ad hoc alar için gelitirilen yol atama protokolleri 
+aaida siniflandirilmitir: 
+ Tabloya-Dayali  (proactive)  Yol  Atama  :  bütün 
+eriilebilen a varilarina (destination) sürekli olarak yol 
+(route) salayan bir stratejidir.  
+ stekle-Tetiklenen (reactive) Yol Atama : yollarin (route) 
+sadece  iletiim  isteinde  salandii  ve  korunduu  bir 
+stratejidir.  Bu  yaklaim  yeni  yollar  oluturmak  ve 
+topoloji  deiikliklerine  göre  yollari  korumak  için 
+yöntemlere ihtiyaç duyar.  
+ Hibrid  yol  atama:  önceden  belirlenen  kriterlere  veya 
+deien a topolojisine göre tabloya-dayali ya da istekle-
+tetiklenen  yol  atama  tekniklerinden  birini  seçerek 
+kullanan bir stratejidir.  
+Gelitirilen  bu  stratejilerin  büyük  bir  çounluu,  yatay  yol 
+atama tekniini kullanmaktadir. 
+Yol  atama  protokollerinin  performansini  etkileyen 
+parametreleri  belirtecek  olursak  bunlar  a  büyüklüü,  a 
+balilii (connectivity), topolojik deime siklii, ba kalitesi 
+(link  quality),  tekyönlü  balarin  orani,  trafik  yöntemleri  ve 
+hareketliliktir. 
+Tabloya-Dayali Yol Atama Protokolleri 
+Tabloya-dayali  yol  atama  teknikleri,  genelde,  sabit  alt  yapili 
+alarda  kullanilan  tekniklerin  gezgin  alara  uyarlamalaridir. 
+Tabloya-dayali yol atama protokolleri, yol atama bilgilerini a 
+içerisinde  periyodik  olarak  yayarak  bütün  varilara  yollari 
+(path) önceden hesaplarlar. Bütün varilara yol ihtiyaci olmasa 
+bile veya baka bir düümün yolu üzerinde bulunulmasa bile, 
+her düüm, bütün varilara önceden hesaplanmi bir yol atama 
+bilgisi  tutar.  Bu  yol  atama  bilgileri  bir  veya  birkaç  tabloda 
+tutulduundan  tabloya-dayali  yol  atama  olarak  anilir.  Bu 
+tablolar, a topolojisinde bir deiiklik olduunda,  periyodik 
+olarak  gönderilen  mesajlar  veya  güncelleme  mesajlariyla 
+güncellenir. Bu tip bir yaklaim, sabit topolojisi olan alarda 
+yüksek  kaliteli  yollar  salamasina  ramen,    çok  deiken 
+büyük alar için iyi sonuç vermez [8, 23]. Telsiz ad hoc alar 
+için  gelitirilmi  olan  tabloya-dayali  yol  atama 
+algoritmalarinin en önemlileri aaida siralanmitir: 
+ Vari-Sirali  Uzaklik-Vektörü  Algoritmasi  (Destination-
+Seguenced Distance-Vector Algorithm), DSDV [20]. 
+ Telsiz Yol Atama Protokolu (Wireless Routing Protocol), 
+WRP [15]. 
+ Global Durum Yol Atamasi (Global State Routing), GSR 
+[3]. 
+ Balikgözü Durum Yol Atama Algoritmasi (Fisheye State 
+Routing Algorithm), FSR [8]. 
+ Hiyerarik  Durum  Yol  Atamasi  (Hierarchical  State 
+Routing), HSR [8, 18]. 
+ Öbek  Geçitleri  Üzerinden  Yol  Atama  (Cluster  Gateway 
+Switching Routing), CGSR [23]. 
+stekle-Tetiklenen Yol Atama Protokolleri 
+Sabit  alt  yapili  alarda  kullanilan  tekniklerin  çeitli  ekilde 
+uyarlamasi  olan  tabloya-dayali  yol  atama  algoritmalarindaki 
+olumsuzluklari  gidermek  için,  istekle-tetiklenen  yol  atama 
+algoritmalari gelitirilmitir.  
+Yeni bir sinif yol atama algoritmasi olan istekle-tetiklenen yol 
+atama,  verimlilik  (efficiency)  ve  yanitlama  (responsiveness) 
+arasinda daha iyi bir denge kurmak için tasarlanmitir. stekle-
+tetiklenen yol atama algoritmalarinda, düümler ve yollar ile 
+ilgili önceden hesaplanmi bilgiler tutulmaz. Yol atama ilemi 
+ihtiyaç duyulduunda yapilir ve bu yol hakkindaki bilgiler de 
+sadece yol kullanildii sürece tutulur. Üç kisimdan oluur; yol 
+arama  (path  search),  bulunan  yolu  koruma  (route 
+maintenance)  ve  yol  bilgilerini    silme  (erasing)  [10,  13,  22, 
+23].  
+ekil F Bir fiziksel / sanal  hiyerarik ad hoc a. 
+letiim  ihtiyaci  olutuunda,  kaynaktan  varia  doru  bir  yol 
+bulma  ilemi  balatilir.  Yol  bulunduunda  da  topoloji 
+deiikliine  kari  yolu  iletiim  süresince  korur.  letiim 
+bittiinde  yol  iptal  edilir.  Bu  teknik  sayesinde  yol  atama 
+algoritmasinin  ilemleri  azalir  ve  yol  atama  algoritmasi 
+topoloji  deiikliklerine  daha  hizla  uyum  salar.  Ayrica 
+verilerin  ilenmesinde  ve  gönderilmesinde  daha  az  a 
+özkaynaklari kullanilmi olur.  
+stekle-tetiklenen yol atama stratejisinde yollar, bir sorgu-yanit 
+ilemi  ile  salanir  [13,  22].  Bu  i,  yönlendirilmi  yayin 
+(directed  broadcast)  denilen  kontrollü  takin  (flooding)  ile 
+yapilir. Bu ilemde bir sorgu veya  istek paketi, varia doru 
+olan  birkaç  yol  üzerinden  gönderilir.  Arama  ilemi  kaynak 
+düümden  varia  doru  bir  veya  birkaç  yolu  dinamik  olarak 
+oluturur.    Bu  strateji  yol  atama  bilgilerinin  tutulacai 
+varilarin  sayisini  azaltir  ve  ayni  zamanda  da  yol  atama  için 
+gerekli olan denetim trafii de azalir. Böylece tablo küçülür ve 
+a  yükü azalir.  
+Bu  yaklaimin  da  olumsuz  yanlari  vardir.  Bunlar  yol  arama 
+ilemi  esnasindaki  gecikme  olasilii,  uzaktaki  düümlere 
+erimek  için  gereken  denetim  trafiinin  büyüklüü  ve  yol 
+kalitesinin düük olmasidir. Ayrica, yol arama ilemi sirasinda 
+yol sorgusu, bütün a boyunca yayilmaktadir. Son olarak da, 
+istekle-tetiklenen  birçok  yol  atama  stratejisi,  optimal  yollari 
+bulmaz  ve  bu  strateji  ile  bulunan  yollar,  her  topoloji 
+deiikliinde daha az optimal olur.  
+Telsiz ad hoc alar için gelitirilmi olan istekle-tetiklenen yol 
+atama algoritmalarinin en önemlileri aaida siralanmitir: 
+ Gafni – Bertsekas (GB) Protokolu [14]. 
+ Deiken  Kaynak  Yol  Atama  Protokolu  (Dynamic 
+Source Routing), DSR [9]. 
+ Ad Hoc stekle-Tetiklenen Uzaklik Vektör Protokolu (Ad 
+Hoc On-Demand Distance Vector), AODV [19]. 
+ Geçici  Sirali  Yol  Atama  Algoritmasi  (Temporarily 
+Ordered Routing Algorithm), TORA [16]. 
+ likiye Dayali Yol Atama (Associavity Based Routing), 
+ABR [24]. 
+ Iaret  Dengesine  Dayali  Yol  Atama  (Signal  Stability 
+Based Routing), SSR [5]. 
+Her iki stratejinin birbirlerine göre olumlu  ve olumsuz yanlari 
+vardir. Tabloya-dayali yol atama stratejisinin istekle-tetiklenen 
+yol  atama  stratejisine  göre  en  önemli  olumlu  yani  istekle-
+tetiklenen  yol  bulma  ilemindeki  airi  yük  ve  belirsizliklerin 
+olmamasidir.  Tabloya-dayali  stratejide,  istenilen  yol,  tutulan 
+yol-atama tablolarindan bakilarak bulunduundan, gecikme ve 
+ilem younluu olmaz.  stekle-tetiklenen protokoller, en iyi 
+(optimal)  yol  yerine  varia  giden  herhangi  bir  yol  bulur  (bir 
+çok  istekle-tetiklenen  protokol  bulunan  ilk  yolu  seçer)  ve 
+kullanilan  yol  zamanla  daha  az  optimal  olur.  Buna  karin 
+tabloya-dayali protokoller genellikle en kisa yolu bulur. 
+Tabloya-dayali yol atama protokollerinin de istekle-tetiklenen 
+protokollere  göre  birçok  olumsuz  yani  vardir.  stekle-
+tetiklenen  yol  atama  protokollerinin  ortaya  çikii  da  bu 
+olumsuzluklar nedeniyle olmu ve tabloya dayali protokollere 
+göre daha kabul edilebilir sonuçlar vermitir. Bununla beraber 
+istekle-tetiklenen  yol  atama  algoritmalari  ile  ilgili  yukarida 
+belirttiimiz problemler giderilmelidir, çünkü etkili yol bulma 
+ve  topolojik  deiikliklere  olan  tepkimeyi  azaltma,  ad  hoc 
+alarda yol atamanin etkinliini arttirmak için çok önemlidir. 
+Bunu salt istekle-tetiklenen protokol ile  baarmak çok zordur. 
+Yol atama ileminin etkinliini arttiracak ve deiken ortamlar 
+için yol koruma ilemini baariyla yapabilecek daha gelimi 
+tekniklere ihtiyaç vardir.  
+Hibrid Yol Atama 
+Her  iki  teknik  de  belirli  koullarda  olumlu  yanlari  olmasina 
+karin  dier  koullarda  iyi  sonuçlar  vermemektedir.  Hangi 
+tekniin  daha  iyi  olduu  ain  büyüklüü,  düümlerin 
+hareketlilik  özellikleri,  düümler  arasindaki  trafik  dailimi, 
+yol arama ileminin etkinlii, bozulan yollarin düzeltilme hizi 
+ve uzak eriim sorunlari gibi etkenlere balidir. Bu çatian ve 
+çok  sayidaki  deiken  etkenler  nedeniyle  hiçbir  strateji 
+optimal çözüm vermez ve hiçbir strateji bütün koullar için tek 
+baina yeterli deildir. Bunun sonucunda hibrid bir yaklaim 
+gerekmitir.  
+Tabloya-dayali  yol  atama  teknii  büyük  ve  gezgin  alar  için 
+iyi  sonuçlar  vermediinden,  bu  tekniin  uygulandii  alani 
+küçülttüümüzde,  onun  avantajlarindan  faydalanabiliriz.  ki 
+tekniin beraber kullandiimizda da, tabloya dayali yol atama 
+algoritmalarindaki  ilem  yükü  ile  özkaynak  kullanimi  ve 
+istekle  tetiklenen  yolatama  algoritmasinda  yol  arama  (route 
+search)  ilemindeki  gecikme  azalir.  Salt  istekle  tetiklenen 
+yolatama  algoritmasina  göre  daha  optimal  bir  yol  bulunur. 
+Böylece  her  iki  tekniin  olumsuzluklarini  büyük  ölçüde 
+gidererek olumlu yanlarindan ayni anda faydalanabiliriz. 
+Her iki stratejide, yol bulma politikasi, yol atama ölçütleri ve 
+koruma  algoritmalariyla  birbirlerinden  çok  farkli  olmasina 
+ramen,  bu  ilem,  ain  bölünerek,  ain  farkli  fiziksel  ve 
+mantiksal alanlarinda ve zamanin farkli dilimlerinde bu iki yol 
+atama tekniinden biri uygulanarak yapilir. Böylece, yukarida 
+belirtilen etkenlerin yol atama algoritmasi üzerindeki olumsuz 
+etkileri  azaltilmi  olunur.  Ayrica  farkli  zamanda,  farkli 
+alanlarda  farkli  yol  atama  algoritmalarinin  uygulanmasiyla, 
+yol atama görevi bölünmü ve tek bir algoritmaya göre daha 
+iyi bir denge salanmi olunur.  
+4. ÖBEK-YAPILI (CLUSTER-BASED) YOL ATAMA 
+Buraya  kadar,  gezgin  ad  hoc  alar  için  birçok  yol  atama 
+teknii  tanitildi.  Bütün  bu  teknikler  düüm  hareketliliinden 
+veya  a  büyüklüünden  olumsuz  olarak  etkilenmekte  ve 
+ihtiyaçlarin hepsini karilamamaktadir.  
+Ad  hoc  alar  için  tasarlanan  tabloya  dayali  yol  atama 
+tekniinin temelinde sabit alarda kullanilan yol atama teknii 
+olduu  için,  bu  teknik,  düüm  hareketliliinin  az  olduu 
+küçük  alarda  iyi  sonuçlar  vermektedir.  Düümlerin  sayisi 
+arttiinda  tutulan  yol  atama  tablolarinin  büyüklüüde 
+artacaktir.  Düümlerin  hareketlilii  arttiinda  da  süreklilik 
+gösteren topoloji deiikliine kari tablolari güncellemek için 
+gönderilen  güncelleme  mesajlariyla  a  megul  edilecek  ve 
+yapilan ilem miktari artacaktir. Bu nedenle tabloya-dayali yol 
+atama teknii hareketli ve büyük alar için uygun deildir. 
+Sadece  aktif  yollar  için  tablo  tutarak  ve  sadece  düüm 
+hareketliliinden  etkilenen  aktif  yollar  için  tablolarda 
+güncelleme  yaparak  özkaynak  kullanimini  en  aza  indiren 
+istekle-tetiklenen yol atama teknikleri gezgin ad hoc alar için 
+daha uygundur. stekle-tetiklenen yol atama teknikleri, düüm 
+sayisinin  az  olduu  gezgin  alarda  iyi  sonuçlar  vermesine 
+ramen, a büyüdüünde sonuçlarda kötülemektedir.  
+Büyük  alar  için  uygulanacak  en  iyi  yöntem  hiyerarik 
+yapidir.  Hiyerarik  yapiyla  a  daha  ufak  görünecek  ve  daha 
+küçük  yol  atama  tablolari  tutulacaktir.  Hiyerarik  yapili  bir 
+ada en az iki düzey vardir. En alt düzey, gerçek düümlerden 
+meydana  gelen  öbeklerden  olumu  olup,  dier  düzeyler 
+seçilen  öbek  balarinin  meydana  getirdii  sanal  öbeklerden 
+oluan  sanal  düzeylerdir.  Farkli  öbeklerdeki  düümler 
+arasindaki  iletiimler  öbek  balari  üzerinden  sanal  düzeyler 
+kullanilarak yapilir. 
+Hiyerarik yapi büyük alar için iyi sonuçlar vermesine karin 
+düüm  gezginliinden  olumsuz  etkilenmektedir.  Düüm 
+hareketliliinden  dolayi  düümler  arasindaki  balarin  ömrü 
+kisalacaindan,  en  alt  düzeyde  oluturulan  öbeklerin 
+üyelikleride  sürekli  olarak  deiecektir.  Bu  da,  hiyerarik 
+yapinin  en  üst  düzeyine  kadar  giden  ilemler  yükünün 
+olumasina  neden  olmakta  ve  birçok  kariik  hesaplamalari 
+gerektirmektedir.  
+Hiyerarik yapidaki düzeyler en az sayida tutulursa, hiyerarik 
+yapinin  olumsuzluklari  önemli  ölçüde  giderilebilir.  En  alt 
+düzeyde  de  düümlerin  karakteristiklerine  göre  uygun 
+öbeklerin  oluturulmasiyla,  hem  tabloya-dayali  /  istekle-
+tetiklenenen  yol  atamanin  hem  de  hiyerarik  yol  atamanin 
+avantajlarindan  faydalanan  hibrid  bir  yol  atama  teknii 
+uygulanabilir. Böyle bir yapida öbek-yapili yol atamadir.  
+Bir  öbek-yapili  (cluster-based) ad hoc ada, daha dengeli ve 
+etkili  bir  topoloji  salamak  maksadiyla,  tüm  a,  dinamik 
+olarak öbek (cluster) adi verilen parçalara bölünür. Böylece ad 
+hoc  alarda  önemli  bir  etken  olan  ölçeklenebilirlik 
+(scalability) problemi önemli ölçüde giderilir. Ayrica öbekler, 
+tabloya-dayali  ve  istekle-tetiklenen  yol  atama  arasinda 
+geçiide salayarak yol atama için avantajlar salar.  
+Düümlerin  gezginlii  nedeniyle  her  öbein  üyelii  ve 
+karakteristii  zaman  içinde  deiebilir.  Bu  ilem  öbek 
+oluturma (clustering) algoritmasi ile salanir. Ad hoc alarda 
+öbek  oluturma,  hiyerarik  yol  atamayi  desteklemek,  istekle-
+tetiklenen protokoller için yol arama ilemini daha etkin hale 
+getirmek,  farkli  alanlarda  (domain)  ve  farkli  hiyerarik 
+düzeylerde çalian farkli yol atama stratejileri için hibrid yol 
+atamayi desteklemek, gönderim bandgeniliine eriimde daha 
+fazla denetim salamak için kullanilir. 
+Sabit  bir  ada  oluturulan  öbekteki  düümlerde  sabit  kalir. 
+Fakat  bir  ad  hoc  ada  düüm  gezginlii  nedeniyle  balilik 
+(connectivity)  ve  düümler  arasindaki  iliki  sürekli 
+deieceinden öbeklerde dinamik olarak oluturulmalidir. 
+ Ad  hoc  alar  için  gelitirilen  öbek-yapili  algoritmalar 
+aaidadir: 
+ k-Öbek-Yapili  Algoritmasi  (k-Cluster-Based  Algorithm) 
+[12], 
+ Gezgin  Telsiz  Alar  için  Uyarlanabilir  Öbek  Oluturma 
+(Adaptive Clustering for Mobile Wireless Networks) [6, 
+14], 
+ Minimum Bali Baskin Kümeleri Kullanarak Yol Atama 
+(Routing  Using  Minimum  Connected  Dominating  Sets 
+(Spine)) [14], 
+ Telsiz  A  Sistemleri  için  Multimedya  Destei 
+(Multimedia  Support  for  Wireless  Network  Systems), 
+MMWN [21], 
+ Sanal Alta Yol Atamasi (Virtual Subnet Routing), VSN 
+[14], 
+ Bölge  Yol  Atama  Protokolu  (Zone  Routing  Protocol), 
+ZRP [7], 
+ MANET  Öbek-Yapili  Yol  Atama,  (MANET  Cluster 
+Based Routing), CBR [8]. 
+Öbek oluturma ve dinamik hiyerarik yol atama çok kariik 
+ve  ad  hoc  aa  çok  yük  bindiriyor  gibi  gözüksede  hibrid  yol 
+atama  sayesinde  tabloya-dayali  ve  istekle-tetiklenen  yol 
+atamanin avantajlariyla etkili hale gelir.  
+Önerilen  yukaridaki  öbek-yapili  yol  atama  protokollerinin 
+bazilari sadece tabloya-dayali yol atama tekniini, bazilari da 
+hiyerarik  yada  yatay  yapili  hibrid  teknikleri  kullanmaktadir. 
+Salt  tabloya-dayali  yol  atama  tekniini  kullanan  öbek  yapili 
+yol  atama  protokollerinde  bu  tekniin  olumsuzluklari 
+görülmektedir. 
+Hibrid  yaklaimin  ve  hiyerarik  yapinin  avantajlarindan 
+faydalanmak ve tek bir yol atama tekniine göre daha iyi bir 
+performans salamak için, öbekler içinde ve öbekler arasinda 
+farkli  yol  atama  teknikleri  uygulanmalidir.  Yol  atama 
+tekniklerinin  seçimi,  oluturulan  öbeklerin  sayisina  ve 
+öbeklerdeki  düümlerin  miktarlarina  göre  belirlenebilir. 
+Öbekler  küçük  olduunda,  öbeklerdeki  düüm  sayisi  az 
+olacak,  buna  karilik  öbeklerin  sayisi  artacaktir.  Böyle  bir 
+durumda,  öbekler  içinde  tabloya  dayali  yol  atama  tekniini, 
+öbekler  arasinda  da  istekle-tetiklenen  yol  atama  tekniini 
+kullanan  bir  hibrid  yapi  kullanilmalidir.  Öbekler  büyük 
+olduunda  da,  öbeklerdeki  düüm  sayilari  artacak,  buna 
+karilik  öbeklerin  sayisi  azalacaktir.  Böyle  bir  durumda  da, 
+öbekler  içinde  istekle-tetiklenen  yol  atama  tekniini,  öbekler 
+arasinda  da  tabloya  dayali  yol  atama  tekniini  kullanan  bir 
+hibrid yapi kullanilmalidir.  
+Burada  ortaya  çikan  sorun,  öbein  büyüklüünün  ne  kadar 
+olacainin  belirlenmesidir.  Bu  sorun  da,  öbek  büyüklüünü, 
+öbekte  bulunan  düümlerin  hareketlilik  karakteristiklerine 
+göre  dinamik  olarak  belirleyen  uyarlanabilir  bir  yapiyla 
+giderilebilir. 
+Bugüne  kadar  gezgin  ad  hoc  alar  için  birçok  yol  atama 
+teknii gelitirilmitir. Bu tekniklerin uygulandii protokoller, 
+gezgin  ad  hoc  alarin  karakteristikleri  ve  özkaynaklardaki 
+kisitlar  nedeniyle,  verimlilik  (efficiency),  yanitlama 
+(responsiveness),  ölçeklenebilirlik  (scalability)  ve  optimallik 
+arasinda çetin bir uzlaiya neden olmutur. Bu uzlaiyi mevcut 
+protokoller ile en iyi ekilde, hibrid ve hiyerarik bir yaklaim 
+olan  öbek-yapili  yol  atama  stratejileri salamaktadir. Gelien 
+teknoloji  ile  birlikte  kullanici  ihtiyaçlarida  çeitlenmekte  ve 
+artmaktadir.  Ad  hoc  alarda  ölçeklenebilir  (scalable)  bir  yol 
+atama salayan, her türlü düüm gezginliine kari verimlilik 
+ve  yanitlama  arasinda  iyi  bir  denge  kurarak  geni  alanda 
+kullanici  gezginliini  destekleyen  uyarlanabilir  bir  yapiya 
+ihtiyaç  vardir.  Böyle  bir  yapida  ad  hoc  a  teknolojisinin 
+gelecekteki rolünün temelidir.  
+5. SONUÇ 
+Gezgin  a  teknolojileri  iki  geni  kapsamli  gruba  ayrilarak 
+incelenebilir: hücresel alar ve ad hoc alar. Aslinda hücresel 
+alar  ad  hoc  alarin  tek  sekmeli  telsiz  baa  dayanan  bir  alt 
+sinifi olarak da kabul edilebilir. Hücresel alarda, uç düümler 
+önceden  planlanmi  ve  kurulmu  sabit  bir  omurgaya  bali 
+eriim noktasina telsiz ortam üzerinden erierek haberleirler. 
+Ad hoc alarda, uç düümler bir eriim noktasi veya bir baka 
+uç  düüme  ulamak  için  birden  fazla  telsiz  sekmesine 
+(multihop) ihtiyaç hissedebilirler. Ad hoc alarda sabit bir alt 
+yapiya  ihtiyaç  yoktur.  Ain  topolojisi  deien  ortam 
+koullarina  bali  olarak  sürekli  yenilenir.  Deien  koullara 
+ramen  uçtan  uca  eriebilirlii  salamak  maksadiyla  uç 
+düümler ve düüm noktalari birlikte çaliirlar. Bu özellikleri 
+ile  ad  hoc  alar  kendi  kendilerini  deiken  koullara 
+uyarlayabilen dinamik varliklardir. 
+Ad  hoc  alar,  mevcut  alarla  ilikili  her  katmanda  özgün 
+problemler  ortaya  çikartmitir.  Bu  problemlere  ait  çözümler 
+üzerinde  son  yillarda  youn  olarak  çaliilmaktadir.  Bu 
+çalimalarin  neticesinde  kabullenelebilir  baarimlara  sahip 
+teknolojiler  gelitirilmitir.  Baarili  bir  gezgin  ad  hoc  a, 
+ancak  etkin  bir  yol  atama  algoritmasiyla  gerçekletirilebilir. 
+Bu  nedenle  ad  hoc  teknolojilerindeki  gelimelerin  en 
+önemlileri  ad  hoc  yol  atama  tekniklerinde  olmutur.  Düüm 
+gezginliini  destekleyen  ölçeklenebilir  (scalable)  yol  atama 
+salamak  için  birçok  yol  atama  teknii  gelitirilmitir.  Bu 
+teknikler  yapi  ve  strateji  bakimindan  çok  farkliliklar 
+göstermektedir.  Bu  tekniklerden  gezgin  ad  hoc  alar  için  en 
+uygun olani öbek-yapili yol atama tekniidir.  
+Yapilmakta olan çalimalar ve gelien teknoloji ile birlikte ad 
+hoc  mimarileri  ve  yol  atama  teknikleri  de  gelimektedir. 
+Açiklanan  gelimeler  neticesinde,  ad  hoc  mimarilere  dayali 
+ürünlerin  sayilari  her  geçen  gün  daha  da  artmaktadir. 
+Gelecekte de daha yaygin bir kullanim alani bulacaktir. 
+Kaynakça  
+[1]  J.  Broch  et  al.  A  Performance  Comparison  of  Multi-Hop 
+Wireless  Ad  Hoc  Routing  Protocols.  In  Proceedings  of  the 
+Fourth Annual ACM/IEEE International Conference on Mobile 
+Computing and Networking, Oct. 1998. 
+[2]  C-C. Chiang, H-K. Wu, W. Liu, M. Gerla. Routing In Clustered 
+Multihop,  Mobile  Wireless  Networks  With  Fading  Channel. 
+Internet Draft. 
+[3]  T-W Chen and M. Gerla. Global State Routing: A New Routing 
+Scheme for Ad-hoc Wireless Networks. In Proc. ICC, 1998. 
+[4]  E. Çayirci. Application Of The 3G PCS Technologies To The 
+Mobile  Subsystem  Of  The  Next  Generation  Tactical 
+Communication Systems. Doktora Tezi, Boaziçi Üniversitesi, 
+2000. 
+[5]  R. Dube et al. Signal Stability Based Adaptive Routing (SSA) for 
+Ad-Hoc Networks. IEEE Personal Communications, Feb. 1997. 
+[6]  M.  Gerla  and  J.  Tsai.  Multicluster  mobile  multimedia  radio 
+network. Wireless Networks, 1, Oct. 1995. 
+[7]  Z.  Haas.  A  new  routing  protocol  for  reconfigurable  wireless 
+networks. In In Proc. of IEEE International Conf. on Universal 
+Personal Communications (ICUPC), 1997. 
+[8]  A. Iwata, C-C. Chiang, G. Pei, M. Gerla, T-W. Chen. Scalable 
+Routing  Strategies  For  Ad  Hoc  Wireless  Networks.  Internet 
+Draft. 
+[9]  D.  B.  Johnson  and  D. Maltz. Dynamic Source Routing in Ad 
+Hoc  Wireless  Networks.  In  T.  Imielinski  and  eds.  H.  Korth, 
+editors, Mobile Computing. Kluwer Academic Publishers, 1996. 
+[10]  D. B. Johnson. Routing in Ad Hoc Networks of Mobile Hosts. 
+Proc. Of IEEE Workshop on Mobile Comp. Sys. And App., Dec., 
+1994. 
+[11]  Y-B.  Ko,  N.  H.  Vaidya.  A  Routing  Protocol  for  Physically 
+Hierarchical Ad Hoc Networks. Internet Draft. 
+[12]  P.  Krishna  et  al.  A  Cluster-Based  Approach  for  Routing  in 
+Dynamic Networks. ACM Computer Communications Review, 
+27(2), Apr. 1997. 
+[13]  S.-J.  Lee, M. Gerla, C.-K. Toh. A Simulation Study of Table-
+Driven And On-Demand Routing Protocols for Mobile Ad Hoc 
+Networks. Internet Draft. 
+[14]  A.B.  McDonald.  A  Mobility-Based  Framework  for  Adaptive 
+Dynamic  Cluster-Based  Hybrid  Routing  in  wireless  Ad  Hoc 
+Netwoks. Ph.D. Dissertion Proposal, Uni. Of Pittsburgh, 1999. 
+[15]  S. Murthy and J.J. Garcia-Lunes-Aceves. An Efficient Routing 
+Protocol for Wireless Networks. ACM Balzer Mobile Networks 
+and Applications Journal, Special Issue on Routing in Mobile 
+Communications Networks, 1996. 
+[16]  V. D. Park and M. S. Corson. A Highly Adaptive Distributed 
+Routing  Algorithm  for  Mobile  Wireless  Networks.  In  IEEE 
+Infocom, Apr. 1997. 
+[17]  G. Pei, M. Gerla. Mobility Management in Hierarchical Multi-
+hop Wireless Networks. Internet Draft. 
+[18]  G.  Pei,  M.  Gerla,  X.  Hong,  C-C.  Chiang.  A  Wireless 
+Hierarchical  Routing  Protocol  with  Group  Mobility.  Internet 
+Draft. 
+[19]  C. Perkins and E. Royer. Ad Hoc On-Demand Distance Vector 
+Routing.  In  Proceedings  2 nd   IEEE  Workshop  on  Mobile 
+Computing Systems and Applications (WMCSA’99), 1999. 
+[20]  C.  R.  Perkins  and  P.  Bhagwat.  Highly  Dynamic  Destination 
+Sequenced  Distance  Vector  Routing  (DSDV)  for  Mobile 
+Computers. In ACM SIGCOMM, pages 234–244, Oct. 1994. 
+[21]  R. Ramanathan and M. Steenstrup. Hierarchically-Organized, 
+Multihop  Mobile  Wireless  Networks  for  Quality-of-Service 
+Support. Mobile Networks and Applications, 3, 1998. 
+[22]  S.  Ramanathan  and  M.  Steenstrup.  A  Survey  of  Routing 
+Techniques for Mobile Communications Networks. ACM Baltzer 
+Mobile Networks and Applications, 1(2), 1996. 
+[23]  E.M.  Royer  and  C-K  Toh.  A  Review  of  Current  Routing 
+Protocols  for  Ad-Hoc  Mobile  Wireless  Networks.  IEEE 
+Personal Communications, Apr. 1999. 
+[24]  C-K  Toh.  Associativity-Based  Routing  for  Ad-Hoc  Networks. 
+Wireless Personal Communications, 4(2), Mar. 1997. 
